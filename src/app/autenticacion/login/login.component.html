@@ -1,0 +1,49 @@
+<div class="contenedor">
+    <div class="box-login border p-5 rounded shadow-lg">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <img src="./assets/img/Logo_Santandereano2.png" alt="" id="logoSantandereano">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="titulo text-center">Bienvenido!</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label class="w-100">Username</mat-label>
+                    <input [(ngModel)]="usuarioEmpleados.userName" matInput class="w-100"  name="username" id="username" type="text" autofocus required>
+                    <mat-icon matSuffix class="w-100"><i class="fa-solid fa-user fa-xs"></i></mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label class="w-100">Contraseña</mat-label>
+                    <input [(ngModel)]="usuarioEmpleados.contrasena" matInput class="w-100" [type]="hide ? 'password' : 'text'" required>
+                    <button mat-icon-button matSuffix class="w-100" (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon class="w-100">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-12 text-end">
+                <p class="link-primario"><a href="#">¿Olvidaste tu contraseña?</a></p>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <button  class="w-100 rounded-pill btnLogin" (click)="login()">Iniciar Sesión</button>
+            </div>
+        </div>
+
+    </div>
+</div>

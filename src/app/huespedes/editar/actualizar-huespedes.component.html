@@ -1,0 +1,136 @@
+<div class="container">
+    <div class="row-mt-6">
+
+    </div>
+
+    <div class="card">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Actualice los Datos del Huesped</mat-card-title>
+                <mat-card-subtitle>Actualizacion del Huesped </mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+                <form name="form" (ngSubmit)="updateHuesped()" novalidate #f="ngForm">
+                    <div class=" form-group row">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="form.nombre" name="nombre"
+                                placeholder="Enter text" required>
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="apellido" class="form-label">Apellido</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="form.apellido" name="apellido">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="direccion" class="form-label">Direccion</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="form.direccion" name="direccion">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="numCelular" class="form-label">Numero de Celular</label>
+                        <div>
+                            <input type="number" class="form-control" [(ngModel)]="form.numCelular" name="numCelular">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="correo" class="form-label">Correo Electronico</label>
+                        <div>
+                            <input type="correo" class="form-control" [(ngModel)]="form.correo" name="correo">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="codTipoDocumento">Tipo de Documento</label>
+                        <div>
+                            <select class="form-select form-select-sm" aria-label="tipoDocumento" id="tipoDocumento"
+                                name="tipoDocumento" [(ngModel)]="form.tipoDocumento" placeholder="Escoja una opción"
+                                required>
+                                <option [ngValue]="tipoDocumento" *ngFor="let tipoDocumento of idTipoDocumento">
+                                    {{tipoDocumento.nomTipoDocumento}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="numDocumento" class="form-label">Numero de Documento</label>
+                        <div>
+                            <input type="number" class="form-control" [(ngModel)]="form.numDocumento"
+                                name="numDocumento">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="codNacion">Nacionalidad</label>
+                        <div>
+                            <select class="form-select form-select-sm" aria-label="nacionalidad" id="nacionalidad"
+                                name="nacionalidad" [(ngModel)]="form.nacionalidad" placeholder="Escoja una opción"
+                                required>
+                                <option [ngValue]="nacionalidad" *ngFor="let nacionalidad of  idNacionalidad">
+                                    {{nacionalidad.nombre}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="lugarOrigen" class="form-label">Lugar de Origen</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="form.lugarOrigen" name="lugarOrigen">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="nomContactoEmergencia" class="form-label">Nombre del Contacto de Emergencia</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="form.nomContactoEmergencia"
+                                name="nomContactoEmergencia">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="numContactoEmergencia" class="form-label">Numero de Contacto de Emergencia</label>
+                        <div>
+                            <input type="tel" class="form-control" [(ngModel)]="form.numContactoEmergencia"
+                                name="numContactoEmergencia">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="estadoHuesped" class="form-label">Estado del Huesped</label>
+                        <div>
+                            <mat-slide-toggle for="estadoHuesped" [(ngModel)]="form.estadoHuesped" name="estadoHuesped"
+                                class=" estadoHuesped" id=" estadoHuesped" [color]="color" [checked]="checked"
+                                [disabled]="disabled">
+                            </mat-slide-toggle>
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <mat-card-actions align="end">
+                            <div>
+                                <button mat-stroked-button color="warn">Cancelar</button>
+                            </div>
+
+                            <div>
+                                <button mat-stroked-button color="primary">Guardar</button>
+                            </div>
+                        </mat-card-actions>
+                    </div>
+                </form>
+
+            </mat-card-content>
+
+        </mat-card>
+    </div>
+
+</div>

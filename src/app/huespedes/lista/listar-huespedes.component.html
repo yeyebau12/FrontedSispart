@@ -1,0 +1,103 @@
+<div class="card border-dark mb-3">
+  <div class="card-header text-primary">
+    <h2>Listado de Huespedes</h2>
+  </div>
+  <div class="my-2 text-left">
+    <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/crearHuesped']">Crear Huesped</button>
+  </div>
+
+  <div class="card-body">
+
+    <div *ngIf="huespedes?.length == 0" class="alert alert-info">
+      <h4> No existen registros en la base de datos de huespedes! </h4>
+    </div>
+    <section class="example-container mat-elevation-z8" tabindex="0">
+
+      <!--Table-->
+      <table mat-table [dataSource]="huespedes" class="mat-elevation-z8" *ngIf="huespedes && huespedes.length > 0">
+
+        <!-- Id_huesped Column -->
+        <ng-container matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef>CODIGO</th>
+          <td mat-cell *matCellDef="let huespedes">{{huespedes.codHuesped}} </td>
+        </ng-container>
+
+        <!-- tipDocumento Column -->
+        <ng-container matColumnDef="tipoDocumento">
+          <th mat-header-cell *matHeaderCellDef>TIPO DE DOCUMENTO</th>
+          <td mat-cell *matCellDef="let huespedes"> {{huespedes.tipoDocumento.nomTipoDocumento}} </td>
+        </ng-container>
+
+        <!-- numDocumento Column -->
+        <ng-container matColumnDef="numDocumento">
+          <th mat-header-cell *matHeaderCellDef>NUMERO DE DOCUMENTO</th>
+          <td mat-cell *matCellDef="let huespedes"> {{huespedes.numDocumento}} </td>
+        </ng-container>
+
+        <!-- nombre Column -->
+        <ng-container matColumnDef="Nombre">
+          <th mat-header-cell *matHeaderCellDef>NOMBRE</th>
+          <td mat-cell *matCellDef="let huespedes"> {{huespedes.nombre}} </td>
+        </ng-container>
+
+        <!-- apellido Column -->
+        <ng-container matColumnDef="Apellido">
+          <th mat-header-cell *matHeaderCellDef>APELLIDO</th>
+          <td mat-cell *matCellDef="let huespedes"> {{huespedes.apellido}} </td>
+        </ng-container>
+
+        <!-- direccion Column -->
+        <ng-container matColumnDef="Direccion">
+          <th mat-header-cell *matHeaderCellDef>DIRECCION</th>
+          <td mat-cell *matCellDef="let huespedes"> {{huespedes.direccion}} </td>
+        </ng-container>
+
+        <!-- numero de celular Column -->
+        <ng-container matColumnDef="NumeroCelular">
+          <th mat-header-cell *matHeaderCellDef>NUMERO CELULAR</th>
+          <td mat-cell *matCellDef="let huespedes"> {{huespedes.numCelular}} </td>
+        </ng-container>
+
+        <!-- correo Column -->
+        <ng-container matColumnDef="Correo">
+          <th mat-header-cell *matHeaderCellDef>CORREO ELECTRONICO</th>
+          <td mat-cell *matCellDef="let huespedes"> {{huespedes.correo}} </td>
+        </ng-container>
+
+
+        <!-- tipDocumento Column -->
+        <ng-container matColumnDef="estadoHuesped">
+          <th mat-header-cell *matHeaderCellDef>ESTADO DEL HUESPED</th>
+          <td mat-cell *matCellDef="let huespedes">
+            <mat-slide-toggle for="estadoHuesped" [(ngModel)]="huespedes.estadoHuesped" name="estadoHuesped"
+              class=" estadoHuesped" id=" estadoHuesped" [color]="color" [checked]="checked"
+              [disabled]="disabled"></mat-slide-toggle>
+          </td>
+        </ng-container>
+
+        <!-- editar Column -->
+        <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef>ACCIONES</th>
+
+          <td mat-cell *matCellDef="let huespedes">
+
+            <button mat-icon-button aria-label="editar" routerLink="/actualizarHuesped/{{huespedes.codHuesped}}">
+              <mat-icon><i class="fa-solid fa-pen-to-square"></i></mat-icon>
+            </button>
+            <button mat-icon-button color="warn" aria-label="eliminar" (click)="deleteHuesped(huespedes)">
+              <mat-icon><i class="fa-solid fa-trash"></i></mat-icon>
+            </button>
+
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <!--mat-paginator class="custom-paginator" [pageSizeOptions]="[5, 10, 25, 100] [paginador]" aria-label="Select page of users"></mat-paginator-->
+
+    </section>
+
+  </div>
+</div>
