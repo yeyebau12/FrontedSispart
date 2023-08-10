@@ -1,10 +1,12 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListarHuespedesComponent } from './huespedes/lista/listar-huespedes.component';
 import { ActualizarHuespedesComponent } from './huespedes/editar/actualizar-huespedes.component';
+import { DetailComponent } from './huespedes/detail/detail.component';
+import { DetailEmpleadoComponent } from './empleado/deatil/detail-empleado.component';
 import { CrearHuespedesComponent } from './huespedes/crear/crear-huespedes.component';
 import { CrearEmpleadoComponent } from './empleado/crear/crear-empleado.component';
 import { ListarEmpleadoComponent } from './empleado/listar/listar-empleado.component';
@@ -18,7 +20,10 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './autenticacion/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
+import { PaginadorComponent } from './paginador/paginador.component';
+import { DatePipe, registerLocaleData } from '@angular/common';
+import localeCO from '@angular/common/locales/es-CO'
+registerLocaleData(localeCO,'es-CO');
 
 
 
@@ -42,7 +47,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
-import { PaginadorComponent } from './paginador/paginador.component';
+import { PaginadorEmpleadoComponent } from './paginador/paginadorEmpleado/paginador-empleado.component';
+
+
+
 
 
 
@@ -62,7 +70,10 @@ import { PaginadorComponent } from './paginador/paginador.component';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    PaginadorComponent
+    PaginadorComponent,
+    DetailComponent,
+    DetailEmpleadoComponent,
+    PaginadorEmpleadoComponent
   ],
   imports: [
     BrowserModule,
@@ -104,8 +115,13 @@ import { PaginadorComponent } from './paginador/paginador.component';
     MatDatepickerModule,
     MatSelectModule
   ],
-
-  providers: [HuespedService],
+  
+  entryComponents:[DetailComponent],
+  providers: [
+  HuespedService,
+  {provide:LOCALE_ID, useValue: 'es-CO'},
+  DatePipe
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

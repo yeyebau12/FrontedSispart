@@ -59,7 +59,7 @@ export class HuespedService {
           console.error(e.error.mensaje);
           return throwError(e);
         }
-        console.error(e.error.messaje);
+        console.error(e.error.mensaje);
         return throwError(e);
 
       })
@@ -73,12 +73,12 @@ export class HuespedService {
           console.error(e.error.mensaje);
           return throwError(e);
         }
-        this.router.navigate(['/listarHuepedes']);
+        this.router.navigate(['/listarHuespedes']);
         console.error(e.error.mensaje);
         return throwError(e);
 
       })
-    )
+    );
 
   }
 
@@ -89,6 +89,7 @@ export class HuespedService {
           console.error(e.error.mensaje);
           return throwError(e);
         }
+        this.router.navigate(['/listarHuespedes']);
         console.error(e.error.mensaje);
         return throwError(e);
 

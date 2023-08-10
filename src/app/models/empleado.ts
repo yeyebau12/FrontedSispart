@@ -7,33 +7,32 @@ export class Empleado {
     codEmpleado?: number;
     nombre!: string;
     apellido!: string;
-    tipDocumento!: TipoDocumento;
-    numDocumento!: number;
-    edad!: number;
+    tipDocumento: TipoDocumento;
+    numDocumento: number;
     numTelefono!: number;
     correo!: string;
-    fechaNacimiento!: Date;
-    direccion!: string;
-    nomContactoEmergencia!: string;
-    numContactoEmergencia!: number;
-    eps!: string;
+    fechaNacimiento: Date;
+    edad!: number;
+    direccion: string;
+    nomContactoEmergencia: string;
+    numContactoEmergencia: number;
+    eps: string;
     arl!: string;
     sexo!: Sexo;
     tipoSangre!: TipoSangre;
     fotoEmpleado!: string;
 
-    constructor(nombre: string, apellido: string, tipDocumento: TipoDocumento, numDocumento: number, edad: number,
+    constructor(nombre: string, apellido: string, tipDocumento: TipoDocumento, numDocumento: number,
         numTelefono: number, correo: string, fechaNacimiento: Date, direccion: string, nomContactoEmergencia: string,
-        numContactoEmergencia: number, eps: string, arl: string, sexo: Sexo, tipoSangre: TipoSangre) {
+        numContactoEmergencia: number, eps: string, arl: string, sexo: Sexo, tipoSangre: TipoSangre,) {
 
         this.nombre = nombre;
         this.apellido = apellido;
         this.tipDocumento = tipDocumento;
         this.numDocumento = numDocumento;
-        this.edad = edad;
         this.numTelefono = numTelefono;
         this.correo = correo;
-        this.fechaNacimiento = fechaNacimiento;
+        this.fechaNacimiento = fechaNacimiento
         this.direccion = direccion;
         this.nomContactoEmergencia = nomContactoEmergencia;
         this.numContactoEmergencia = numContactoEmergencia;

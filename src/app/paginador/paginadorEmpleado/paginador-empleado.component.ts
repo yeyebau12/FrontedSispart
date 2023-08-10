@@ -1,14 +1,12 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
+import { Component, Input, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-paginador',
-  templateUrl: './paginador.component.html',
-  styleUrls: ['./paginador.component.css']
+  selector: 'app-paginador-empleado',
+  templateUrl: './paginador-empleado.component.html',
+  styleUrls: ['./paginador-empleado.component.css']
 })
-export class PaginadorComponent implements OnInit, OnChanges {
-
-  @Input() paginador: any;
+export class PaginadorEmpleadoComponent {
+    @Input() paginador: any;
 
   paginas!: number[];
   from!: number;
@@ -47,6 +45,5 @@ export class PaginadorComponent implements OnInit, OnChanges {
     }
 
   }
-
 
 }

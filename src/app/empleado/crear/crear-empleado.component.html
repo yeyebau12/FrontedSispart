@@ -1,1 +1,156 @@
-<p>crear-empleado works!</p>
+<div class="container">
+    <div class="row-mt-6">
+
+    </div>
+
+    <div class="card">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Ingrese los Datos del Empleado</mat-card-title>
+                <mat-card-subtitle>Datos del Empleado </mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+                <form name="form" (ngSubmit)="onCreateEmpleado()" novalidate #f="ngForm">
+                    <div class=" form-group row">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="form.nombre" name="nombre"
+                                placeholder="Enter text" required>
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="apellido" class="form-label">Apellido</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="form.apellido" name="apellido">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="codTipoDocumento">Tipo de Documento</label>
+                        <div>
+                            <select class="form-select form-select-sm" aria-label="tipDocumento" id="tipDocumento"
+                                name="tipDocumento" [(ngModel)]="form.tipDocumento" placeholder="Escoja una opción"
+                                required>
+                                <option [ngValue]="tipoDocumento" *ngFor="let tipoDocumento of idTipoDocumento">
+                                    {{tipoDocumento.nomTipoDocumento}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="numDocumento" class="form-label">Numero de Documento</label>
+                        <div>
+                            <input type="number" class="form-control" [(ngModel)]="form.numDocumento"
+                                name="numDocumento">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="numTelefono" class="form-label">Numero de Contacto</label>
+                        <div>
+                            <input type="tel" class="form-control" [(ngModel)]="form.numTelefono" name="numTelefono">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="correo" class="form-label">E-mail</label>
+                        <div>
+                            <input type="correo" class="form-control" [(ngModel)]="form.correo" name="correo">
+                        </div>
+                    </div>
+
+
+                    <div class=" form-group row">
+                        <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                        <div>
+                            <input type="date" class="form-control"
+                            [(ngModel)]="form.fechaNacimiento" name="fechaNacimiento">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="direccion" class="form-label">Direccion</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="form.direccion" name="direccion">
+                        </div>
+                    </div>
+
+
+                    <div class=" form-group row">
+                        <label for="nomContactoEmergencia" class="form-label">Nombre del Contacto de Emergencia</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="form.nomContactoEmergencia"
+                                name="nomContactoEmergencia">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="numContactoEmergencia" class="form-label">Numero de Contacto de Emergencia</label>
+                        <div>
+                            <input type="tel" class="form-control" [(ngModel)]="form.numContactoEmergencia"
+                                name="numContactoEmergencia">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="eps" class="form-label">EPS</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="form.eps" name="eps">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="arl" class="form-label">ARL</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="form.arl" name="arl">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="sexo">Sexo</label>
+                        <div>
+                            <select class="form-select form-select-sm" aria-label="sexo" id="sexo" name="sexo"
+                                [(ngModel)]="form.sexo" placeholder="Escoja una opción" required>
+                                <option [ngValue]="sexo" *ngFor="let sexo of idSexo">
+                                    {{sexo.nomSexo}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="tipoSangre">Tipo de Sangre</label>
+                        <div>
+                            <select class="form-select form-select-sm" aria-label="tipoSangre" id="tipoSangre"
+                                name="tipoSangre" [(ngModel)]="form.tipoSangre" placeholder="Escoja una opción"
+                                required>
+                                <option [ngValue]="tipoSangre" *ngFor="let tipoSangre of idTipoSangre">
+                                    {{tipoSangre.nomTipoSangre}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                    <div class=" form-group row">
+                        <mat-card-actions align="end">
+                            <div>
+                                <button mat-stroked-button color="warn">Cancelar</button>
+                            </div>
+
+                            <div>
+                                <button mat-stroked-button color="primary">Guardar</button>
+                            </div>
+                        </mat-card-actions>
+                    </div>
+                </form>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+</div>

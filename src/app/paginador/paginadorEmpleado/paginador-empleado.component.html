@@ -2,12 +2,12 @@
     <ul *ngIf="paginas && paginas.length > 0" class="pagination pagination-sm">
 
         <li [ngClass]="paginador.first? 'disabled page-item' : 'page-item'">
-            <a class="page-link" [routerLink]="['/listarHuespedes/page', 0]"><i
+            <a class="page-link" [routerLink]="['/listarEmpleados/page', 0]"><i
                     class="fa-solid fa-backward-fast"></i></a>
         </li>
 
         <li class="page-item" *ngIf="paginador.number > 0">
-            <a class="page-link" [routerLink]="['/listarHuespedes/page', paginador.number-1]"><i
+            <a class="page-link" [routerLink]="['/listarEmpleados/page', paginador.number-1]"><i
                     class="fa-solid fa-arrow-left"></i></a>
         </li>
 
@@ -15,16 +15,16 @@
         <li class="page-item" *ngFor="let pagina of paginas" [ngClass]="pagina-1 == paginador.number?'active':''">
             <span class="page-link" *ngIf="pagina-1 == paginador.number">{{pagina}}</span>
             <a class="page-link" *ngIf="pagina-1 != paginador.number"
-                [routerLink]="['/listarHuespedes/page', pagina-1]"> {{pagina}}</a>
+                [routerLink]="['/listarEmpleados/page', pagina-1]"> {{pagina}}</a>
         </li>
 
         <li class="page-item" *ngIf="paginador.number< paginador.totalPages-1">
-            <a class="page-link" [routerLink]="['/listarHuespedes/page', paginador.number+1]"><i
+            <a class="page-link" [routerLink]="['/listarEmpleados/page', paginador.number+1]"><i
                     class="fa-solid fa-arrow-right"></i></a>
         </li>
 
         <li [ngClass]="paginador.last ? 'disabled page-item' : 'page-item'">
-            <a class="page-link" [routerLink]="['/listarHuespedes/page', paginador.totalPages-1]"><i
+            <a class="page-link" [routerLink]="['/listarEmpleados/page', paginador.totalPages-1]"><i
                     class="fa-solid fa-forward-fast"></i></a>
         </li>
     </ul>

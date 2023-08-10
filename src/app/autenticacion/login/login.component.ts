@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioEmpleado } from 'src/app/models/usuario-empleado';
 import { AuthService } from 'src/app/service/login/auth.service';
@@ -49,5 +49,17 @@ export class LoginComponent {
           console.log("Error: Usuario o Contraseña incorrecta")
         }
       });
+  }
+
+  onEnterKey(event: KeyboardEvent): void {
+    this.login();
+
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent): void {
+    if (event.key === 'Enter') {
+      this.onEnterKey(event);
+    }
   }
 }

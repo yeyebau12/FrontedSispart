@@ -7,6 +7,8 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { ActivatedRoute } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-listar-huespedes',
   templateUrl: './listar-huespedes.component.html',
@@ -20,17 +22,21 @@ export class ListarHuespedesComponent {
   checked = true;
   disabled = true;
 
-  constructor(private huespedService: HuespedService, public dialog: MatDialog, private activatedRoute: ActivatedRoute) { }
+  constructor(
+     private huespedService: HuespedService,
+     private activatedRoute: ActivatedRoute,
+     public dialog:MatDialog
+     ) { }
 
   //columnas e inicializacion de la tabla huespedes
-  displayedColumns: string[] = ['codigo', 'tipoDocumento', 'numDocumento', 'Nombre', 'Apellido', 'Direccion', 'NumeroCelular', 'Correo', 'estadoHuesped', 'acciones'];
+  displayedColumns: string[] = ['codigo', 'tipoDocumento', 'numDocumento', 'Nombre', 'Apellido', 'Direccion', 'NumeroCelular', 'Correo','acciones'];
   dataSource = this.huespedes;
 
 
   ngOnInit() {
     this.cargarHuesped();
-
   }
+
 
   cargarHuesped(): void {
 
@@ -55,6 +61,8 @@ export class ListarHuespedesComponent {
     );
 
   }
+
+ 
 
   deleteHuesped(huesped: Huesped): void {
 
