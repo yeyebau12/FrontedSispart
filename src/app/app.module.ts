@@ -48,6 +48,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { PaginadorEmpleadoComponent } from './paginador/paginadorEmpleado/paginador-empleado.component';
+import { CrearHabitacionComponent } from './habitacion/crear/crear-habitacion.component';
+import { ActualizarHabitacionComponent } from './habitacion/editar/actualizar-habitacion.component';
+import { DetailHabitacionComponent } from './habitacion/detail/detail-habitacion.component';
+import { ListarHabitacionComponent } from './habitacion/listar/listar-habitacion.component';
+import { DetailProductoComponent } from './producto/detail/detail-producto.component';
 
 
 
@@ -73,7 +78,12 @@ import { PaginadorEmpleadoComponent } from './paginador/paginadorEmpleado/pagina
     PaginadorComponent,
     DetailComponent,
     DetailEmpleadoComponent,
-    PaginadorEmpleadoComponent
+    PaginadorEmpleadoComponent,
+    CrearHabitacionComponent,
+    ActualizarHabitacionComponent,
+    DetailHabitacionComponent,
+    ListarHabitacionComponent,
+    DetailProductoComponent
   ],
   imports: [
     BrowserModule,

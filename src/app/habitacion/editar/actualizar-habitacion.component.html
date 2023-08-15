@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="row-mt-6">
+
+    </div>
+
+    <div class="card">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Actualice los Datos de la Habitación</mat-card-title>
+                <mat-card-subtitle>Datos de la Habitación</mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+                <form name="form" (ngSubmit)="updateHabitacion()" novalidate #f="ngForm">
+                    <div class=" form-group row">
+                        <label for="nombreHabitacion" class="form-label">Nombre de la Habitación</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="form.nombreHabitacion"
+                                name="nombreHabitacion" placeholder="Enter text" required>
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="numHabitacion" class="form-label">Número de la habitación</label>
+                        <div>
+                            <input type="number" class="form-control" [(ngModel)]="form.numHabitacion"
+                                name="numHabitacion">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="pisoHabitacion" class="form-label">Piso de la Habitación</label>
+                        <div>
+                            <input type="number" class="form-control" [(ngModel)]="form.pisoHabitacion"
+                                name="pisoHabitacion">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="maxPersonasDisponibles" class="form-label">Cantidad Maxima de Personas en la
+                            Habitación </label>
+                        <div>
+                            <input type="number" class="form-control" [(ngModel)]="form.maxPersonasDisponibles"
+                                name="maxPersonasDisponibles">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="precioHabitacion" class="form-label">Precio de la Habitacion X Día</label>
+                        <div>
+                            <input type="number" class="form-control" [(ngModel)]="form.precioHabitacion"
+                                name="precioHabitacion">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="estadoHabitacion">Estado de la Habitación</label>
+                        <div>
+                            <select class="form-select form-select-sm" aria-label="estadoHabitacion"
+                                id="estadoHabitacion" name="estadoHabitacion" [(ngModel)]="form.estadoHabitacion"
+                                placeholder="Escoja una opción" required>
+                                <option>Disponible</option>
+                                <option>Ocupada</option>
+                                <option>Aseo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="descripHabitacion" class="form-label">Descripcion de la Habitación</label>
+                        <div>
+                            <textarea class="form-control" [(ngModel)]="form.descripHabitacion"
+                                placeholder="Leave a comment here" id="floatingTextarea"
+                                name="descripHabitacion"></textarea>
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <mat-card-actions align="end">
+                            <div>
+                                <button mat-stroked-button color="warn">Cancelar</button>
+                            </div>
+
+                            <div>
+                                <button mat-stroked-button color="primary">Guardar</button>
+                            </div>
+                        </mat-card-actions>
+                    </div>
+                </form>
+
+            </mat-card-content>
+
+        </mat-card>
+    </div>
+
+</div>

@@ -1,0 +1,86 @@
+<div class="card border-dark mb-3">
+    <div class="card-header text-primary">
+      <h2>Listado de Habitaciones</h2>
+    </div>
+    <div class="my-2 text-left">
+      <button mat-icon-button aria-label="addHuesped" [routerLink]="['/crearHabitacion']">
+        <i class="fa-solid fa-user-plus fa-sm" style="color: #050505;"></i>
+      </button>
+    </div>
+  
+    <div class="card-body">
+  
+      <div *ngIf="habitaciones?.length == 0" class="alert alert-info">
+        <h4> No existen registros en la base de datos de habitaciones! </h4>
+      </div>
+      <section class="example-container mat-elevation-z8" tabindex="0">
+  
+        <!--Table-->
+        <table mat-table [dataSource]="habitaciones" class="mat-elevation-z8" *ngIf="habitaciones && habitaciones.length > 0">
+  
+          <!-- Id_huesped Column -->
+          <ng-container matColumnDef="codigo">
+            <th mat-header-cell *matHeaderCellDef>CODIGO</th>
+            <td mat-cell *matCellDef="let habitaciones">{{habitaciones.codHabitacion}} </td>
+          </ng-container>
+  
+          <!-- tipDocumento Column -->
+          <ng-container matColumnDef="nomHabitacion">
+            <th mat-header-cell *matHeaderCellDef>HABITACÍON</th>
+            <td mat-cell *matCellDef="let habitaciones"> {{habitaciones.nombreHabitacion}} </td>
+          </ng-container>
+  
+          <!-- numDocumento Column -->
+          <ng-container matColumnDef="numHabitacion">
+            <th mat-header-cell *matHeaderCellDef>NUMERO DE HABITACIÓN</th>
+            <td mat-cell *matCellDef="let habitaciones"> {{habitaciones.numHabitacion}} </td>
+          </ng-container>
+  
+          <!-- apellido Column -->
+          <ng-container matColumnDef="pisoHabitacion">
+            <th mat-header-cell *matHeaderCellDef>PISO DE LA HABITACIÓN</th>
+            <td mat-cell *matCellDef="let habitaciones"> {{habitaciones.pisoHabitacion}} </td>
+          </ng-container>
+  
+          <!-- direccion Column -->
+          <ng-container matColumnDef="maxPersonasDisponibles">
+            <th mat-header-cell *matHeaderCellDef>CANTIDAD MAXIMA DE PERSONAS X HABITACIÓN</th>
+            <td mat-cell *matCellDef="let habitaciones"> {{habitaciones.maxPersonasDisponibles}} Personas </td>
+          </ng-container>
+  
+          <!-- correo Column -->
+          <ng-container matColumnDef="estadoHabitacion">
+            <th mat-header-cell *matHeaderCellDef>ESTADO ACTUAL DE LA HABITACIÓN</th>
+            <td mat-cell *matCellDef="let habitaciones"> {{habitaciones.estadoHabitacion}} </td>
+          </ng-container>
+  
+  
+          <!-- editar Column -->
+          <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef>ACCIONES</th>
+  
+            <td mat-cell *matCellDef="let habitaciones">
+  
+              <button mat-icon-button aria-label="editar" routerLink="/actualizarHabitacion/{{habitaciones.codHabitacion}}">
+                <mat-icon><i class="fa-solid fa-pen-to-square"></i></mat-icon>
+              </button>
+              <button mat-icon-button color="warn" aria-label="eliminar" (click)="deleteHabitacion(habitaciones)">
+                <mat-icon><i class="fa-solid fa-trash"></i></mat-icon>
+              </button>
+  
+             <button mat-icon-button color="primary" aria-label="verHabitacion" routerLink="/verHabitacion/{{habitaciones.codHabitacion}}">
+                <mat-icon><i class="fa-solid fa-eye"></i></mat-icon>
+             </button>
+  
+            </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <app-paginador *ngIf="paginador" [paginador]="paginador"></app-paginador>
+      </section>
+  
+  
+    </div>
+  </div>

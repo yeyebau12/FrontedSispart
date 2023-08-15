@@ -9,20 +9,37 @@ import { DetailComponent } from './huespedes/detail/detail.component';
 import { CrearEmpleadoComponent } from './empleado/crear/crear-empleado.component';
 import { EditarEmpleadoComponent } from './empleado/editar/editar-empleado.component';
 import { DetailEmpleadoComponent } from './empleado/deatil/detail-empleado.component';
+import { ListarHabitacionComponent } from './habitacion/listar/listar-habitacion.component';
+import { CrearHabitacionComponent } from './habitacion/crear/crear-habitacion.component';
+import { ActualizarHabitacionComponent } from './habitacion/editar/actualizar-habitacion.component';
+import { DetailHabitacionComponent } from './habitacion/detail/detail-habitacion.component';
+import { ListarProductoComponent } from './producto/listar/listar-producto.component';
+import { CrearProductoComponent } from './producto/crear/crear-producto.component';
+import { DetailProductoComponent } from './producto/detail/detail-producto.component';
+import { ActualizarProductoComponent } from './producto/editar/actualizar-producto.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'listarHuespedes', component: ListarHuespedesComponent },
-  { path: 'listarEmpleados', component: ListarEmpleadoComponent },
   { path: `listarHuespedes/page/:page`, component: ListarHuespedesComponent },
+  { path: 'listarHuespedes', component: ListarHuespedesComponent },
   { path: `listarEmpleados/page/:page`, component: ListarEmpleadoComponent },
   { path: 'listarEmpleados', component: ListarEmpleadoComponent },
+  { path: `listarHabitaciones/page/:page`, component: ListarHabitacionComponent },
+  { path: 'listarHabitaciones', component: ListarHabitacionComponent },
+  { path: `listarProductos/page/:page`, component: ListarProductoComponent },
+  { path: 'listarProductos', component: ListarProductoComponent },
   { path: 'crearHuesped', component: CrearHuespedesComponent },
   { path: 'crearEmpleado', component: CrearEmpleadoComponent },
+  { path: 'crearHabitacion', component: CrearHabitacionComponent },
+  { path: 'crearProducto', component: CrearProductoComponent },
   { path: `actualizarHuesped/:codHuesped`, component: ActualizarHuespedesComponent },
   { path: `actualizarEmpleado/:codEmpleado`, component: EditarEmpleadoComponent },
+  { path: `actualizarHabitacion/:codHabitacion`, component: ActualizarHabitacionComponent },
+  { path: `actualizarProducto/:codProducto`, component: ActualizarProductoComponent},
   { path: `verHuesped/:codHuesped`, component: DetailComponent },
   { path: `verEmpleado/:codEmpleado`, component: DetailEmpleadoComponent },
+  { path: `verHabitacion/:codHabitacion`, component: DetailHabitacionComponent },
+  { path: `verProducto/:codProducto`, component: DetailProductoComponent },
   { path: 'login', component: LoginComponent },
 ];
 

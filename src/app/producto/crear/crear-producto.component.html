@@ -1,1 +1,62 @@
-<p>crear-producto works!</p>
+<div class="container">
+    <div class="row-mt-6">
+
+    </div>
+
+    <div class="card">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Ingrese el Producto</mat-card-title>
+                <mat-card-subtitle>Datos del Producto</mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+                <form name="form" (ngSubmit)="onCreateProducto()" novalidate #f="ngForm">
+                    <div class=" form-group row">
+                        <label for="nombreProducto" class="form-label">Tipo de Producto</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="form.nombreProducto" name="nombreProducto"
+                                placeholder="Enter text" required>
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="marca" class="form-label">Marca del Producto</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="form.marca" name="marca">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="cantidad" class="form-label">Cantidades Disponibles</label>
+                        <div>
+                            <input type="number" class="form-control" [(ngModel)]="form.cantidad"
+                                name="cantidad">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="precio" class="form-label">Precio x Unidad</label>
+                        <div>
+                            <input type="number" class="form-control" [(ngModel)]="form.precio" name="precio">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <mat-card-actions align="end">
+                            <div>
+                                <button mat-stroked-button color="warn">Cancelar</button>
+                            </div>
+
+                            <div>
+                                <button mat-stroked-button color="primary">Guardar</button>
+                            </div>
+                        </mat-card-actions>
+                    </div>
+                </form>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+</div>
