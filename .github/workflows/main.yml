@@ -39,6 +39,10 @@ jobs:
       - name: Build app bundle
         run: npm run build:prod
 
+      # Route file renaming
+      - name: Rename index for routing
+        run: mv dist/proyecto-sispart/index.html dist/proyecto-sispart/404.html
+
       #Deploy GitHub pages 
       - name: Deploy to Pages
         uses: crazy-max/ghaction-github-pages@v3.1.0
