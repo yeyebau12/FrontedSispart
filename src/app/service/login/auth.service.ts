@@ -11,7 +11,7 @@ export class AuthService {
 
   private _usuarioEmpleado!: UsuarioEmpleado;
   private _token!: any;
-  private urlEndPoint: string = 'https://3.135.120.137/oauth/token';
+  private urlEndPoint: string = 'https://backendsispart.com.co/oauth/token';
 
 
   constructor(private http: HttpClient, private router: Router) { }
