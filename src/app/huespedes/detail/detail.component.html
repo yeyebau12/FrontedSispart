@@ -1,66 +1,116 @@
 <h2>Visualización De Los Datos Del Huesped</h2>
 
-    <form name="form" novalidate #f="ngForm">
-
-        <div class=" form-group row">
-            <label for="codHuesped" class="form-label" ><b>Codigo: </b>{{huesped.codHuesped}}</label>
-        </div>
-
-        <div class=" form-group row">
-            <label for="nombre" class="form-label" ><b>Nombre: </b> {{huesped.nombre}}</label>
-        </div>
-       
-        <div class=" form-group row">
-            <label for="apellido" class="form-label"><b>Apellido: </b>{{huesped.apellido}}</label>
-        </div>
-
-        <div class=" form-group row">
-            <label for="direccion" class="form-label"><b>Direccion: </b> {{huesped.direccion}}</label>
-        </div>
-
-        <div class=" form-group row">
-            <label for="numCelular" class="form-label"><b>Numero de Celular: </b> {{huesped.numCelular}}</label>
-        </div>
-
-        <div class=" form-group row">
-            <label for="correo" class="form-label"><b>E-mail: </b> {{huesped.correo}}</label>
-        </div>
-
-        <div class=" form-group row">
-            <label for="codTipoDocumento"><b>Tipo de Documento: </b> {{huesped.tipoDocumento.nomTipoDocumento}}</label>
-        </div>
-
-        <div class=" form-group row">
-            <label for="numDocumento" class="form-label"><b>Numero de Documento: </b> {{huesped.numDocumento}}</label>
-        </div>
-
-        <div class=" form-group row">
-            <label for="codNacion"><b>Nacionalidad: </b> {{huesped.nacionalidad.nombre}}</label>
-        </div>
-
-        <div class=" form-group row">
-            <label for="lugarOrigen" class="form-label"><b>Lugar de Origen: </b>{{huesped.lugarOrigen}}</label>
-        </div>
-
-        <div class=" form-group row">
-            <label for="nomContactoEmergencia" class="form-label"><b>Contacto de Emergencia : </b>{{huesped.nomContactoEmergencia}}</label>
-        </div>
-
-        <div class=" form-group row">
-            <label for="numContactoEmergencia" class="form-label"><b>Numero del Contacto de Emergencia: </b> {{huesped.numContactoEmergencia}}</label>
-        </div>
-
-        <div class=" form-group row">
-            <label for="estadoHuesped" class="form-label"><b>Estado del Huesped: </b> {{huesped.estadoHuesped}}</label>
-        </div>
-
-    </form>
+<form name="form" novalidate #f="ngForm">
 
     <div class=" form-group row">
-        <mat-card-actions align="end">
-            <div>
-                <button mat-raised-button color="primary" (click)="volver()"><i class="fa-solid fa-arrow-rotate-left fa-sm" style="color: #f6f7f9;"></i> Regresar</button>
-            </div>
-
-        </mat-card-actions>
+        <label for="codHuesped" class="form-label"><b>Codigo: </b>{{huesped.codHuesped}}</label>
     </div>
+
+    <div class=" form-group row">
+        <label for="nombre" class="form-label"><b>Nombre: </b> {{huesped.nombre}}</label>
+    </div>
+
+    <div class=" form-group row">
+        <label for="apellido" class="form-label"><b>Apellido: </b>{{huesped.apellido}}</label>
+    </div>
+
+    <div class=" form-group row">
+        <label for="direccion" class="form-label"><b>Direccion: </b> {{huesped.direccion}}</label>
+    </div>
+
+    <div class=" form-group row">
+        <label for="numCelular" class="form-label"><b>Numero de Celular: </b> {{huesped.numCelular}}</label>
+    </div>
+
+    <div class=" form-group row">
+        <label for="correo" class="form-label"><b>E-mail: </b> {{huesped.correo}}</label>
+    </div>
+
+    <div class=" form-group row">
+        <label for="codTipoDocumento"><b>Tipo de Documento: </b> {{huesped.tipoDocumento.nomTipoDocumento}}</label>
+    </div>
+
+    <div class=" form-group row">
+        <label for="numDocumento" class="form-label"><b>Numero de Documento: </b> {{huesped.numDocumento}}</label>
+    </div>
+
+    <div class=" form-group row">
+        <label for="codNacion"><b>Nacionalidad: </b> {{huesped.nacionalidad.nombre}}</label>
+    </div>
+
+    <div class=" form-group row">
+        <label for="lugarOrigen" class="form-label"><b>Lugar de Origen: </b>{{huesped.lugarOrigen}}</label>
+    </div>
+
+    <div class=" form-group row">
+        <label for="nomContactoEmergencia" class="form-label"><b>Contacto de Emergencia :
+            </b>{{huesped.nomContactoEmergencia}}</label>
+    </div>
+
+    <div class=" form-group row">
+        <label for="numContactoEmergencia" class="form-label"><b>Numero del Contacto de Emergencia: </b>
+            {{huesped.numContactoEmergencia}}</label>
+    </div>
+
+    <div class=" form-group row">
+        <label for="estadoHuesped" class="form-label"><b>Estado del Huesped: </b> {{huesped.estadoHuesped}}</label>
+    </div>
+
+</form>
+<div class="row">
+    <button mat-icon-button aria-label="facturas" [routerLink]="['/crearFactura',huesped.codHuesped]"><mat-icon><i
+                class="fa-solid fa-receipt fa-sm"></i></mat-icon></button>
+</div>
+
+<div class="row">
+    <div class="alert alert-info my-4" *ngIf="huesped && huesped.facturas && huesped.facturas.length == 0">
+        No hay facturas asignadas para el huesped: {{huesped.nombre }} {{huesped.apellido}}
+    </div>
+
+    <table class="table table-bordered table-striped my-4"
+        *ngIf="huesped && huesped.facturas && huesped.facturas.length > 0">
+        <thead>
+            <th>Codigo de Factura</th>
+            <th>Descripcion</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Total</th>
+            <th>Estado de la Factura</th>
+            <th>Detalle</th>
+            <th>Eliminar</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let factura of huesped.facturas">
+                <td>{{factura.codFactura}}</td>
+                <td>{{factura.descripcion}}</td>
+                <td>{{factura.fechaCreacion}}</td>
+                <td>{{factura.horaCreacion}}</td>
+                <td>${{factura.total}} COP</td>
+                <td>{{factura.estado}}</td>
+                <td> <button mat-icon-button color="primary" aria-label="verFactura"
+                        [routerLink]="['/verFactura',factura.codFactura]">
+                        <mat-icon><i class="fa-solid fa-eye fa-sm"></i></mat-icon>
+                    </button>
+                </td>
+                <td>
+                    <button mat-icon-button color="warn" aria-label="eliminar" (click)="deleteFactura(factura)">
+                        <mat-icon><i class="fa-solid fa-trash fa-sm"></i></mat-icon>
+                    </button>
+                </td>
+
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class=" form-group row">
+    <mat-card-actions align="end">
+        <div>
+            <button mat-raised-button color="primary" (click)="volver()"><i class="fa-solid fa-arrow-rotate-left fa-sm"
+                    style="color: #f6f7f9;"></i> Regresar</button>
+        </div>
+
+    </mat-card-actions>
+</div>

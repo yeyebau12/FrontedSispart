@@ -52,7 +52,6 @@
                         <div>
                             <select class="form-select form-select-sm" aria-label="tipoDocumento" id="tipoDocumento" name="tipoDocumento"
                                 [(ngModel)]="form.tipoDocumento" placeholder="Escoja una opción" required>
-                                <option></option>
                                 <option [ngValue]="tipoDocumento" *ngFor="let tipoDocumento of idTipoDocumento">
                                     {{tipoDocumento.nomTipoDocumento}}
                                 </option>

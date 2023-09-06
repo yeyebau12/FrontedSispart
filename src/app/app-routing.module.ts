@@ -17,6 +17,8 @@ import { ListarProductoComponent } from './producto/listar/listar-producto.compo
 import { CrearProductoComponent } from './producto/crear/crear-producto.component';
 import { DetailProductoComponent } from './producto/detail/detail-producto.component';
 import { ActualizarProductoComponent } from './producto/editar/actualizar-producto.component';
+import { DetailFacturaComponent } from './factura/detail/detail-factura.component';
+import { CrearFacturaComponent } from './factura/crear/crear-factura.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -32,6 +34,7 @@ const routes: Routes = [
   { path: 'crearEmpleado', component: CrearEmpleadoComponent },
   { path: 'crearHabitacion', component: CrearHabitacionComponent },
   { path: 'crearProducto', component: CrearProductoComponent },
+  { path: 'crearFactura/:codHuesped', component: CrearFacturaComponent },
   { path: `actualizarHuesped/:codHuesped`, component: ActualizarHuespedesComponent },
   { path: `actualizarEmpleado/:codEmpleado`, component: EditarEmpleadoComponent },
   { path: `actualizarHabitacion/:codHabitacion`, component: ActualizarHabitacionComponent },
@@ -40,6 +43,7 @@ const routes: Routes = [
   { path: `verEmpleado/:codEmpleado`, component: DetailEmpleadoComponent },
   { path: `verHabitacion/:codHabitacion`, component: DetailHabitacionComponent },
   { path: `verProducto/:codProducto`, component: DetailProductoComponent },
+  { path: `verFactura/:codFactura`, component: DetailFacturaComponent },
   { path: 'login', component: LoginComponent },
 ];
 

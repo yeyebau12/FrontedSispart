@@ -2,9 +2,11 @@ import { Component, Inject } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Factura } from 'src/app/models/factura';
 import { Huesped } from 'src/app/models/huesped';
 import { Nacionalidad } from 'src/app/models/nacionalidad';
 import { TipoDocumento } from 'src/app/models/tipo-documento';
+import { FacturaServiceService } from 'src/app/service/factura/factura.service';
 import { HuespedService } from 'src/app/service/huesped/huesped.service';
 import { NacionalidadService } from 'src/app/service/nacionalidad/nacionalidad.service';
 import { TipoDocumentoService } from 'src/app/service/tipoDocumento/tipo-documento.service';
@@ -32,7 +34,8 @@ export class DetailComponent {
     lugarOrigen: '',
     nomContactoEmergencia: '',
     numContactoEmergencia: 0,
-    estadoHuesped: true
+    estadoHuesped: true,
+    facturas:[]
   };
   idTipoDocumento: TipoDocumento[] = [];
   idNacionalidad: Nacionalidad[] = [];
@@ -44,6 +47,7 @@ export class DetailComponent {
 
   constructor(
     private huespedService: HuespedService,
+    private facturaService: FacturaServiceService,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {
@@ -65,6 +69,17 @@ export class DetailComponent {
       }
     }
     )
+  }
+
+  deleteFactura(factura:Factura):void{
+
+    this.facturaService.deleteFactura(factura.codFactura).subscribe(
+      response => {
+        this.huesped.facturas = this.huesped.facturas.filter(fact => fact !== factura)
+        console.log(response);
+      }
+    )
+
   }
 
   volver(): void {

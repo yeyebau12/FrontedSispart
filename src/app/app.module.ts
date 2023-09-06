@@ -18,12 +18,21 @@ import { HuespedService } from './service/huesped/huesped.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './autenticacion/login/login.component';
+import { PaginadorEmpleadoComponent } from './paginador/paginadorEmpleado/paginador-empleado.component';
+import { CrearHabitacionComponent } from './habitacion/crear/crear-habitacion.component';
+import { ActualizarHabitacionComponent } from './habitacion/editar/actualizar-habitacion.component';
+import { DetailHabitacionComponent } from './habitacion/detail/detail-habitacion.component';
+import { ListarHabitacionComponent } from './habitacion/listar/listar-habitacion.component';
+import { DetailProductoComponent } from './producto/detail/detail-producto.component';
+import { DetailFacturaComponent } from './factura/detail/detail-factura.component';
+import { CrearFacturaComponent } from './factura/crear/crear-factura.component';
+
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { PaginadorComponent } from './paginador/paginador.component';
 import { DatePipe, registerLocaleData } from '@angular/common';
 import localeCO from '@angular/common/locales/es-CO'
-registerLocaleData(localeCO,'es-CO');
+registerLocaleData(localeCO, 'es-CO');
 
 
 
@@ -47,16 +56,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
-import { PaginadorEmpleadoComponent } from './paginador/paginadorEmpleado/paginador-empleado.component';
-import { CrearHabitacionComponent } from './habitacion/crear/crear-habitacion.component';
-import { ActualizarHabitacionComponent } from './habitacion/editar/actualizar-habitacion.component';
-import { DetailHabitacionComponent } from './habitacion/detail/detail-habitacion.component';
-import { ListarHabitacionComponent } from './habitacion/listar/listar-habitacion.component';
-import { DetailProductoComponent } from './producto/detail/detail-producto.component';
-
-
-
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 
@@ -83,7 +83,9 @@ import { DetailProductoComponent } from './producto/detail/detail-producto.compo
     ActualizarHabitacionComponent,
     DetailHabitacionComponent,
     ListarHabitacionComponent,
-    DetailProductoComponent
+    DetailProductoComponent,
+    DetailFacturaComponent,
+    CrearFacturaComponent
   ],
   imports: [
     BrowserModule,
@@ -91,6 +93,7 @@ import { DetailProductoComponent } from './producto/detail/detail-producto.compo
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,
     MatIconModule,
@@ -110,6 +113,7 @@ import { DetailProductoComponent } from './producto/detail/detail-producto.compo
     MatListModule,
     MatGridListModule,
     MatMenuModule,
+    MatAutocompleteModule
   ],
 
   exports: [
@@ -123,15 +127,16 @@ import { DetailProductoComponent } from './producto/detail/detail-producto.compo
     MatCardModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatAutocompleteModule
   ],
-  
-  entryComponents:[DetailComponent],
+
+  entryComponents: [DetailComponent],
   providers: [
-  HuespedService,
-  {provide:LOCALE_ID, useValue: 'es-CO'},
-  DatePipe
-],
+    HuespedService,
+    { provide: LOCALE_ID, useValue: 'es-CO' },
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

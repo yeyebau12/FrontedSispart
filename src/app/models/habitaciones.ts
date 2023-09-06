@@ -1,3 +1,5 @@
+import { Factura } from "./factura";
+
 export class Habitaciones {
 
     codHabitacion?: number;
@@ -6,18 +8,21 @@ export class Habitaciones {
     numHabitacion!: number;
     pisoHabitacion!: number;
     maxPersonasDisponibles!: number;
-    precioHabitacion!: number;
+    precioDia!: number;
     estadoHabitacion!: string;
     imagenHabitacion!: string;
+   
 
+ 
     constructor(nombreHabitacion: string, descriHabitacion: string, numHabitacion: number, pisoHabitacion: number, 
-                maxPersonasDisponibles: number, precioHabitacion: number, estadoHabitacion: string) {
+                maxPersonasDisponibles: number, precioDia: number, estadoHabitacion: string) {
                     nombreHabitacion = nombreHabitacion;
                     descriHabitacion = descriHabitacion;
                     numHabitacion = numHabitacion;
                     pisoHabitacion = pisoHabitacion;
                     maxPersonasDisponibles = maxPersonasDisponibles;
-                    precioHabitacion = precioHabitacion;
+                    precioDia = precioDia;
                     estadoHabitacion = estadoHabitacion;
     }
+
 }

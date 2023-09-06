@@ -80,9 +80,14 @@
               <mat-icon><i class="fa-solid fa-trash"></i></mat-icon>
             </button>
 
-           <button mat-icon-button color="primary" aria-label="verHuespedes" routerLink="/verHuesped/{{huespedes.codHuesped}}">
+            <button mat-icon-button color="primary" aria-label="verHuespedes"
+              routerLink="/verHuesped/{{huespedes.codHuesped}}">
               <mat-icon><i class="fa-solid fa-eye"></i></mat-icon>
-           </button>
+            </button>
+
+            <button mat-icon-button aria-label="facturas"
+              [routerLink]="['/crearFactura',huespedes.codHuesped]"><mat-icon><i
+                  class="fa-solid fa-receipt fa-sm"></i></mat-icon></button>
 
           </td>
         </ng-container>

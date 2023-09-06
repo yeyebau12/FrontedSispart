@@ -1,3 +1,4 @@
+import { Factura } from "./factura";
 import { Nacionalidad } from "./nacionalidad";
 import { TipoDocumento } from "./tipo-documento";
 
@@ -16,6 +17,7 @@ export class Huesped {
     nomContactoEmergencia!: string;
     numContactoEmergencia!: number;
     estadoHuesped: boolean = true;
+    facturas: Array<Factura>=[];
 
     constructor(nombre: string, apellido: string, direccion: string, numCelular: number,
         correo: string, tipoDocumento: TipoDocumento, numDocuments: number, nacionalidad: Nacionalidad,

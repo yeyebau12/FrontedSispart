@@ -16,9 +16,10 @@ export class DetailHabitacionComponent {
     numHabitacion: 0,
     pisoHabitacion: 0,
     maxPersonasDisponibles: 0,
-    precioHabitacion: 0,
+    precioDia: 0,
     estadoHabitacion: '',
-    imagenHabitacion: ''
+    imagenHabitacion: '',
+   
   }
 
   constructor(
@@ -36,6 +37,7 @@ export class DetailHabitacionComponent {
       if (codHabitacion) {
         this.habitacionService.viewHabitacion(codHabitacion).subscribe(form => {
           this.habitacion = form;
+          console.log(this.habitacion);
         },
           err => {
             this.volver();

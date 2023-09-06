@@ -114,4 +114,19 @@ export class ProductoService {
     );
 
   }
+
+  public filtrarProductos(term:String):Observable<Producto[]>{
+    return this.http.get<Producto[]>(`${this.urlEndPoint + 'filtrarProducto'}/${term}`, { headers: this.addAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNotAuthenticaction(e)) {
+          console.error(e.error.mensaje);
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        return throwError(e);
+
+      }
+      )
+    );
+  }
 }
