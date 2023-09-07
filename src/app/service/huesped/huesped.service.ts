@@ -10,7 +10,8 @@ import { AuthService } from '../login/auth.service';
 })
 export class HuespedService {
 
-  private urlEndPoint: string = 'https://backendsispart.com.co/huespedes/';
+  private urlEndPoint: string = 'https://backendsispart.com.co/huespedes/'
+  //private urlEndPoint: string = 'https://localhost:5000/huespedes/';
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
   constructor(private http: HttpClient, private authService: AuthService, private router: Router) { }

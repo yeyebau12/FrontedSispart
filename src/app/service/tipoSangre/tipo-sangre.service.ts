@@ -10,7 +10,8 @@ import { AuthService } from '../login/auth.service';
 })
 export class TipoSangreService {
 
-  private urlEndPoint: string = 'http://localhost:5000/tipoSangre/';
+  private urlEndPoint: string = 'https://backendsispart.com.co/tipoSangre/'
+  //private urlEndPoint: string = 'http://localhost:5000/tipoSangre/';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 

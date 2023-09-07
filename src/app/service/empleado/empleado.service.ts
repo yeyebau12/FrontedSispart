@@ -13,7 +13,8 @@ import localeES from '@angular/common/locales/es-CO'
 export class EmpleadoService {
 
 
-  private urlEndPoint: string = 'http://localhost:5000/empleados/';
+  private urlEndPoint: string = 'https://backendsispart.com.co/empleados/'
+  //private urlEndPoint: string = 'http://localhost:5000/empleados/';
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
   constructor(private http: HttpClient, private router: Router, private authService: AuthService) { }

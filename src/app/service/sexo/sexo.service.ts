@@ -10,7 +10,8 @@ import { AuthService } from '../login/auth.service';
 })
 export class SexoService {
 
-  private urlEndPoint: string = 'http://localhost:5000/sexo/';
+  private urlEndPoint: string = 'https://backendsispart.com.co/sexo/'
+  //private urlEndPoint: string = 'http://localhost:5000/sexo/';
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 

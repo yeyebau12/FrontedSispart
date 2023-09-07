@@ -9,7 +9,8 @@ import { TipoDocumento } from 'src/app/models/tipo-documento';
 })
 export class TipoDocumentoService {
 
-  private urlEndPoint: string = 'http://localhost:5000/tipoDocumento/';
+  private urlEndPoint: string = 'https://backendsispart.com.co/tipoDocumento/'
+  //private urlEndPoint: string = 'http://localhost:5000/tipoDocumento/';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
   

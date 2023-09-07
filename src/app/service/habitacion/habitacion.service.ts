@@ -9,7 +9,9 @@ import { Observable, catchError, map, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class HabitacionService {
-  private urlEndPoint: string = 'http://localhost:5000/habitacion/';
+
+  private urlEndPoint: string = 'https://backendsispart.com.co/habitacion/'
+  //private urlEndPoint: string = 'http://localhost:5000/habitacion/';
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
   constructor(private http: HttpClient, private authService: AuthService, private router: Router) { }

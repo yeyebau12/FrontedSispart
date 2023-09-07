@@ -9,7 +9,8 @@ import { Nacionalidad } from 'src/app/models/nacionalidad';
 })
 export class NacionalidadService {
 
-  private urlEndPoint: string = 'http://localhost:5000/nacionalidad/';
+  private urlEndPoint: string = 'https://backendsispart.com.co/nacionalidad/'
+  //private urlEndPoint: string = 'http://localhost:5000/nacionalidad/';
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
   
