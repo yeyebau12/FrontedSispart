@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UsuarioEmpleado } from 'src/app/models/usuario-empleado';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class AuthService {
   private _usuarioEmpleado!: UsuarioEmpleado;
   private _token!: any;
 
-  private urlEndPoint: string = 'https://backendsispart.com.co/oauth/token'
-  //private urlEndPoint: string = 'https://localhost:5000/oauth/token';
+  private urlEndPoint: string = environment.url + 'oauth/token'
+
 
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -36,10 +37,10 @@ export class AuthService {
     }
     else if (this._token == null && sessionStorage.getItem('token') != null) {
       this._token = sessionStorage.getItem('token');
-      
+
       return this._token;
     }
-    console.log ('Esperando Autenticacion...!')
+    console.log('Esperando Autenticacion...!')
     return null;
 
   }
@@ -84,7 +85,7 @@ export class AuthService {
   public isAuthenticated(): boolean {
 
     let payload = this.obtenerDatosToken(this.token);
-    
+
     if (payload != null && payload.user_name && payload.user_name.length > 0) {
       return true;
     }

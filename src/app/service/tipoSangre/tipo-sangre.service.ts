@@ -4,14 +4,15 @@ import { Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { TipoSangre } from 'src/app/models/tipo-sangre';
 import { AuthService } from '../login/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TipoSangreService {
 
-  private urlEndPoint: string = 'https://backendsispart.com.co/tipoSangre/'
-  //private urlEndPoint: string = 'http://localhost:5000/tipoSangre/';
+  private urlEndPoint: string = environment.url + 'tipoSangre/'
+ 
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 

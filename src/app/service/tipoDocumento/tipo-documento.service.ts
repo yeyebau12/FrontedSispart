@@ -3,14 +3,15 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { TipoDocumento } from 'src/app/models/tipo-documento';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TipoDocumentoService {
 
-  private urlEndPoint: string = 'https://backendsispart.com.co/tipoDocumento/'
-  //private urlEndPoint: string = 'http://localhost:5000/tipoDocumento/';
+  private urlEndPoint: string = environment.url + 'tipoDocumento/'
+ 
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
   

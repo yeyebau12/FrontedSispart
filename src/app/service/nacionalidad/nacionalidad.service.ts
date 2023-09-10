@@ -3,14 +3,15 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { Nacionalidad } from 'src/app/models/nacionalidad';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NacionalidadService {
 
-  private urlEndPoint: string = 'https://backendsispart.com.co/nacionalidad/'
-  //private urlEndPoint: string = 'http://localhost:5000/nacionalidad/';
+  private urlEndPoint: string = environment.url + 'nacionalidad/'
+  
 
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
   

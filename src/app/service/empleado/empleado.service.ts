@@ -6,6 +6,7 @@ import { Empleado } from 'src/app/models/empleado';
 import { AuthService } from '../login/auth.service';
 import { DatePipe, formatDate, registerLocaleData } from '@angular/common';
 import localeES from '@angular/common/locales/es-CO'
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,7 @@ import localeES from '@angular/common/locales/es-CO'
 export class EmpleadoService {
 
 
-  private urlEndPoint: string = 'https://backendsispart.com.co/empleados/'
-  //private urlEndPoint: string = 'http://localhost:5000/empleados/';
+  private urlEndPoint: string = environment.url + 'empleados/'
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
   constructor(private http: HttpClient, private router: Router, private authService: AuthService) { }

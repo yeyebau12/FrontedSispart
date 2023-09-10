@@ -4,14 +4,15 @@ import { AuthService } from '../login/auth.service';
 import { Router } from '@angular/router';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { Factura } from 'src/app/models/factura';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FacturaServiceService {
 
-  private urlEndPoint: string = 'https://backendsispart.com.co/factura/'
-  //private urlEndPoint: string = 'http://localhost:5000/factura/';
+  private urlEndPoint: string = environment.url + 'factura/'
+
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
   constructor(private http: HttpClient, private authService: AuthService, private router: Router) { }

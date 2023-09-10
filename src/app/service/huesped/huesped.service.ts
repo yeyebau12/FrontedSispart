@@ -4,14 +4,15 @@ import { Router } from '@angular/router';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { Huesped } from 'src/app/models/huesped';
 import { AuthService } from '../login/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HuespedService {
 
-  private urlEndPoint: string = 'https://backendsispart.com.co/huespedes/'
-  //private urlEndPoint: string = 'https://localhost:5000/huespedes/';
+  private urlEndPoint: string = environment.url + 'huespedes/'
+ 
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
   constructor(private http: HttpClient, private authService: AuthService, private router: Router) { }
