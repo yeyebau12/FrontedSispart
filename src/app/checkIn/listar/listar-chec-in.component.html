@@ -1,0 +1,213 @@
+<div class="container">
+    <div class="navigation" (click)="navigation()">
+      <ul>
+        <li>
+          <a href="">
+            <span class="icon"><img src="./assets/img/Logo_Santandereano3.png" alt="Logo"></span>
+            <span class="title"></span>
+          </a>
+        </li>
+  
+        <li>
+          <a href="">
+            <span class="icon"><ion-icon name="home"></ion-icon></span>
+            <span class="title">Inicio</span>
+          </a>
+        </li>
+  
+        <li>
+          <a [routerLink]="['/listarHuespedes']">
+            <span class="icon"><ion-icon name="people"></ion-icon></span>
+            <span class="title">Huespedes</span>
+          </a>
+        </li>
+  
+        <li>
+          <a [routerLink]="['/listarEmpleados']">
+            <span class="icon"><ion-icon name="briefcase"></ion-icon></span>
+            <span class="title">Empleados</span>
+          </a>
+        </li>
+  
+        <li>
+          <a [routerLink]="['/listarCheckin']">
+            <span class="icon"><ion-icon name="log-in"></ion-icon></span>
+            <span class="title">Check - In</span>
+          </a>
+        </li>
+  
+        <li>
+          <a href="">
+            <span class="icon"><ion-icon name="clipboard"></ion-icon></span>
+            <span class="title">Reservas</span>
+          </a>
+        </li>
+  
+        <li>
+          <a  [routerLink]="['/listarHabitaciones']">
+            <span class="icon"><ion-icon name="bed"></ion-icon></span>
+            <span class="title">Habitaciones</span>
+          </a>
+        </li>
+  
+        <li>
+          <a  [routerLink]="['/listarProductos']">
+            <span class="icon"><ion-icon name="flask"></ion-icon></span>
+            <span class="title">Productos</span>
+          </a>
+        </li>
+  
+        <li>
+          <a href="">
+            <span class="icon"><ion-icon name="podium"></ion-icon></span>
+            <span class="title">Informes</span>
+          </a>
+        </li>
+  
+  
+        <li>
+          <a href="">
+            <span class="icon"><ion-icon name="document"></ion-icon></span>
+            <span class="title">Recibos</span>
+          </a>
+        </li>
+  
+        <li>
+          <a href="">
+            <span class="icon"><ion-icon name="settings"></ion-icon></span>
+            <span class="title">Settings</span>
+          </a>
+        </li>
+  
+  
+  
+        <li>
+          <a href="">
+            <span class="icon"><ion-icon name="exit"></ion-icon></span>
+            <span class="title">Sign Out</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  
+    <!--------------------------Main--------------->
+    <div class="main">
+      <div class="topbar">
+  
+        <div class="toggle" (click)="toggle()">
+          <ion-icon name="menu" (click)="toggle()"></ion-icon>
+        </div>
+  
+        <div class="search">
+          <label>
+            <input type="text" placeholder="search here">
+            <ion-icon name="search"></ion-icon>
+          </label>
+        </div>
+  
+        <div class="user">
+          <img src="./assets/img/user.png" alt="">
+        </div>
+  
+      </div>
+  
+      <!--------------------table------------------------------>
+      <div class="details">
+        <div class="orderHuespedes">
+          <div class="cardHeader">
+            <h2>Listado de Check -In</h2>
+            <button mat-icon-button aria-label="addHuesped" [routerLink]="['/crearHuesped']">
+              <mat-icon ><ion-icon name="add-circle"></ion-icon></mat-icon>
+            </button>
+            <!--a class="btn" [routerLink]="['/crearHuesped']"--><!--/a-->
+          </div>
+  
+          <div class="example-table-container">
+  
+            <table mat-table [dataSource]="checkin" class="mat-elevation-z8" *ngIf="checkin && checkin.length > 0">
+  
+              <!-- Id_huesped Column -->
+              <ng-container matColumnDef="codigo">
+                <th mat-header-cell *matHeaderCellDef>CODIGO</th>
+                <td mat-cell *matCellDef="let checkin">{{checkin.codCheckin}} </td>
+              </ng-container>
+  
+              <!-- tipDocumento Column -->
+              <ng-container matColumnDef="fechaEntrada">
+                <th mat-header-cell *matHeaderCellDef>FECHA DE INGRESO</th>
+                <td mat-cell *matCellDef="let checkin"> {{checkin.fechaEntrada}} </td>
+              </ng-container>
+  
+              <!-- tipDocumento Column -->
+              <ng-container matColumnDef="fechaSalida">
+                <th mat-header-cell *matHeaderCellDef>FECHA DE SALIDA</th>
+                <td mat-cell *matCellDef="let checkin"> {{checkin.fechaSalida}} </td>
+              </ng-container>
+  
+              <!-- numDocumento Column -->
+              <ng-container matColumnDef="codHuesped">
+                <th mat-header-cell *matHeaderCellDef>TIPO DE DOCUMENTO</th>
+                <td mat-cell *matCellDef="let checkin"> {{checkin.codHuesped.tipoDocumento.nomTipoDocumento}} </td>
+              </ng-container>
+  
+              <!-- nombre Column -->
+              <ng-container matColumnDef="codHuesped.num">
+                <th mat-header-cell *matHeaderCellDef>NÚMERO DE DOCUMENTO</th>
+                <td mat-cell *matCellDef="let checkin"> {{checkin.codHuesped.numDocumento}} </td>
+              </ng-container>
+  
+              <!-- apellido Column -->
+              <ng-container matColumnDef="codHabitacion">
+                <th mat-header-cell *matHeaderCellDef>HABITACIÓN N°</th>
+                <td mat-cell *matCellDef="let checkin"> {{checkin.codHabitacion.numHabitacion}} </td>
+              </ng-container>
+
+              <!-- editar Column -->
+              <ng-container matColumnDef="acciones">
+                <th mat-header-cell *matHeaderCellDef>ACCIONES</th>
+  
+                <td mat-cell *matCellDef="let checkin">
+  
+                  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon><ion-icon name="apps"></ion-icon></mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item aria-label="editar" routerLink=" ">
+                      <mat-icon><ion-icon name="create"  style="color: #000858 ;"></ion-icon></mat-icon>
+                      <span style="color: #000858;">Editar</span>
+                    </button>
+  
+                    <button mat-menu-item color="warn" aria-label="eliminar" >
+                      <mat-icon><ion-icon name="trash" style="color: #000858 ;"></ion-icon></mat-icon>
+                      <span style="color: #000858;">Eliminar</span>
+                    </button>
+    
+                    <button mat-menu-item color="primary" aria-label="verHuespedes"
+                      routerLink="/verCheckin/{{checkin.codCheckin}}">
+                      <mat-icon><ion-icon name="eye"  style="color: #000858;"></ion-icon></mat-icon>
+                      <span style="color: #000858;">Visualizar</span>
+                    </button>
+    
+                    <button mat-menu-item aria-label="facturas"[routerLink]="['/crearFactura',checkin.codCheckin]">
+                      <mat-icon><ion-icon name="card" style="color: #000858;"></ion-icon></mat-icon>
+                      <span style="color: #000858;">Facturar</span>
+                    </button>
+                  </mat-menu>
+  
+  
+  
+  
+                </td>
+              </ng-container>
+  
+              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+  
+          </div>
+          <app-paginador *ngIf="paginador" [paginador]="paginador"></app-paginador>
+        </div>
+      </div>
+    </div>
+  
+  </div>

@@ -4,14 +4,14 @@ import { Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { Sexo } from 'src/app/models/sexo';
 import { AuthService } from '../login/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SexoService {
 
-  private urlEndPoint: string = 'https://backendsispart.com.co/sexo/'
-  //private urlEndPoint: string = 'http://localhost:5000/sexo/';
+  private urlEndPoint: string = environment.url + 'sexo/';
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 

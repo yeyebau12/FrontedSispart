@@ -1,5 +1,5 @@
 <h4 class="card-title">
-    <a [routerLink]="['/listarHuespedes']" class="btn btn-light btn-xs">&laquo; volver</a>
+    <a [routerLink]="['/listarCheckin']" class="btn btn-light btn-xs">&laquo; volver</a>
 </h4>
 
 <div class="card bg-light" *ngIf="factura">
@@ -8,35 +8,39 @@
     <div class="card-body">
 
         <ul class="list-group my-2">
-            <li class="list-group-item list-group-item-primary">Datos del Huesped</li>
-            <li class="list-group-item">Tipo de Documento: {{factura.huesped.tipoDocumento.nomTipoDocumento}}</li>
-            <li class="list-group-item">número de Documento: {{factura.huesped.numDocumento}}</li>
-            <li class="list-group-item">Nombre: {{factura.huesped.nombre }} {{factura.huesped.apellido}}</li>
-
-        </ul>
-
-        <ul class="list-group my-2">
-            <li class="list-group-item list-group-item-primary">Datos de la Factura</li>
+            <li class="list-group-item list-group-item-primary"><b>Factura</b></li>
             <li class="list-group-item">Codigo: {{factura.codFactura}}</li>
             <li class="list-group-item">Descripcion: {{factura.descripcion}}</li>
             <li class="list-group-item">Fecha de Registro: {{factura.fechaCreacion}}</li>
             <li class="list-group-item">Hora de Registro: {{factura.horaCreacion}}</li>
         </ul>
 
+        <ul class="list-group my-2">
+            <li class="list-group-item list-group-item-primary">Datos del Huesped</li>
+            <li class="list-group-item">Tipo de Documento: {{factura.checkin.codHuesped.tipoDocumento.nomTipoDocumento}}</li>
+            <li class="list-group-item">número de Documento: {{factura.checkin.codHuesped.numDocumento}}</li>
+            <li class="list-group-item">Nombre: {{factura.checkin.codHuesped.nombre }} {{factura.checkin.codHuesped.apellido}}</li>
+            <li class="list-group-item">Habitación N°: {{factura.checkin.codHabitacion.numHabitacion }}</li>
+            <li class="list-group-item">Tipo de Habitación: {{factura.checkin.codHabitacion.nombreHabitacion.nombre }}</li>
+        </ul>
+
+
         <table class="table table-striped table-hover table-bordered my-3">
             <thead>
                 <tr>
+                    <th>Código</th>
                     <th>Producto</th>
-                    <th>Precio</th>
                     <th>Cantidad</th>
+                    <th>Precio/Unit.</th>
                     <th>SubTotal</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let item of factura.itemFactura">
+                    <td>{{item.producto.codProducto}}</td>
                     <td>{{item.producto.nombreProducto}}</td>
-                    <td>{{item.producto.precio}}</td>
                     <td>{{item.cantidad}}</td>
+                    <td>{{item.producto.precio}}</td>
                     <td>{{item.subtotal}}</td>
                 </tr>
             </tbody>

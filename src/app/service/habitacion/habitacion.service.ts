@@ -37,6 +37,19 @@ export class HabitacionService {
 
   }
 
+  
+  public listaHabitaciones():Observable<Habitaciones[]>{
+    return this.http.get(this.urlEndPoint + 'listarHabitaciones').pipe(
+      map(response =>{ 
+        let habitaciones = response as Habitaciones[];
+        return habitaciones.map(habitacion =>{
+          habitacion.nombreHabitacion.nombre = habitacion.nombreHabitacion.nombre.toUpperCase();
+          return habitacion;
+        });
+      })
+    );
+  }
+
   public listarHabitaciones(page: number): Observable<Habitaciones[]> {
     return this.http.get(this.urlEndPoint + 'listarHabitaciones/page/' + page, { headers: this.addAuthorizationHeader() }).pipe(
       catchError(e => {
@@ -45,10 +58,22 @@ export class HabitacionService {
       }),
       map((response: any) => {
         (response.content as Habitaciones[]).map(habitacion => {
-          habitacion.nombreHabitacion = habitacion.nombreHabitacion.toUpperCase();
+          habitacion.nombreHabitacion.nombre = habitacion.nombreHabitacion.nombre.toUpperCase();
           return habitacion;
         });
         return response;
+      })
+    );
+  }
+
+  public listaHabitacionesEstado():Observable<Habitaciones[]>{
+    return this.http.get(this.urlEndPoint + 'listarHabitaciones/estado/1').pipe(
+      map(response =>{ 
+        let habitaciones = response as Habitaciones[];
+        return habitaciones.map(habitacion =>{
+          habitacion.nombreHabitacion.nombre = habitacion.nombreHabitacion.nombre.toUpperCase();
+          return habitacion;
+        });
       })
     );
   }

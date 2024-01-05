@@ -1,93 +1,209 @@
-<div class="card border-dark mb-3">
-    <div class="card-header text-primary">
-      <h2>Listado de Productos</h2>
-    </div>
-    <div class="my-2 text-left">
-      <button mat-icon-button aria-label="addHuesped" [routerLink]="['/crearProducto']">
-        <i class="fa-solid fa-user-plus fa-sm" style="color: #050505;"></i>
-      </button>
-    </div>
-  
-    <div class="card-body">
-  
-      <div *ngIf="productos?.length == 0" class="alert alert-info">
-        <h4> No existen registros en la base de datos de productos! </h4>
+<div class="container">
+  <div class="navigation" (click)="navigation()">
+    <ul>
+      <li>
+        <a href="">
+          <span class="icon"><img src="./assets/img/Logo_Santandereano3.png" alt="Logo"></span>
+          <span class="title"></span>
+        </a>
+      </li>
+
+      <li>
+        <a href="">
+          <span class="icon"><ion-icon name="home"></ion-icon></span>
+          <span class="title">Inicio</span>
+        </a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/listarHuespedes']">
+          <span class="icon"><ion-icon name="people"></ion-icon></span>
+          <span class="title">Huespedes</span>
+        </a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/listarEmpleados']">
+          <span class="icon"><ion-icon name="briefcase"></ion-icon></span>
+          <span class="title">Empleados</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="">
+          <span class="icon"><ion-icon name="clipboard"></ion-icon></span>
+          <span class="title">Reservas</span>
+        </a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/listarHabitaciones']">
+          <span class="icon"><ion-icon name="bed"></ion-icon></span>
+          <span class="title">Habitaciones</span>
+        </a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/listarProductos']">
+          <span class="icon"><ion-icon name="flask"></ion-icon></span>
+          <span class="title">Productos</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="">
+          <span class="icon"><ion-icon name="podium"></ion-icon></span>
+          <span class="title">Informes</span>
+        </a>
+      </li>
+
+
+      <li>
+        <a href="">
+          <span class="icon"><ion-icon name="document"></ion-icon></span>
+          <span class="title">Recibos</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="">
+          <span class="icon"><ion-icon name="settings"></ion-icon></span>
+          <span class="title">Settings</span>
+        </a>
+      </li>
+
+
+
+      <li>
+        <a href="">
+          <span class="icon"><ion-icon name="exit"></ion-icon></span>
+          <span class="title">Sign Out</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!--------------------------Main--------------->
+  <div class="main">
+    <div class="topbar">
+
+      <div class="toggle" (click)="toggle()">
+        <ion-icon name="menu" (click)="toggle()"></ion-icon>
       </div>
-      <section class="example-container mat-elevation-z8" tabindex="0">
-  
-        <!--Table-->
-        <table mat-table [dataSource]="productos" class="mat-elevation-z8" *ngIf="productos && productos.length > 0">
-  
-          <!-- Id_huesped Column -->
-          <ng-container matColumnDef="codigo">
-            <th mat-header-cell *matHeaderCellDef>CODIGO</th>
-            <td mat-cell *matCellDef="let productos">{{productos.codProducto}} </td>
-          </ng-container>
-  
-          <!-- tipDocumento Column -->
-          <ng-container matColumnDef="nombreProducto">
-            <th mat-header-cell *matHeaderCellDef>Producto</th>
-            <td mat-cell *matCellDef="let productos"> {{productos.nombreProducto}} </td>
-          </ng-container>
-  
-          <!-- numDocumento Column -->
-          <ng-container matColumnDef="marca">
-            <th mat-header-cell *matHeaderCellDef>MARCA</th>
-            <td mat-cell *matCellDef="let productos"> {{productos.marca}} </td>
-          </ng-container>
-  
-          <!-- nombre Column -->
-          <ng-container matColumnDef="cantidad">
-            <th mat-header-cell *matHeaderCellDef>CANTIDAD DISPONIBLE</th>
-            <td mat-cell *matCellDef="let productos"> {{productos.cantidad}} unidades</td>
-          </ng-container>
-  
-          <!-- apellido Column -->
-          <ng-container matColumnDef="precio">
-            <th mat-header-cell *matHeaderCellDef>PRECIO X UNIDAD</th>
-            <td mat-cell *matCellDef="let productos">${{productos.precio}} COP </td>
-          </ng-container>
-  
-          <!-- direccion Column -->
-          <ng-container matColumnDef="fechaRegistro">
-            <th mat-header-cell *matHeaderCellDef>FECHA DE REGISTRO</th>
-            <td mat-cell *matCellDef="let productos"> {{productos.fechaRegistro | date:'longDate'}} </td>
-          </ng-container>
-  
-          <!-- numero de celular Column -->
-          <ng-container matColumnDef="horaRegistro">
-            <th mat-header-cell *matHeaderCellDef>HORA DE REGISTRO</th>
-            <td mat-cell *matCellDef="let productos"> {{productos.horaRegistro}}</td>
-          </ng-container>
-  
-  
-  
-          <!-- editar Column -->
-          <ng-container matColumnDef="acciones">
-            <th mat-header-cell *matHeaderCellDef>ACCIONES</th>
-  
-            <td mat-cell *matCellDef="let productos">
-  
-              <button mat-icon-button aria-label="editar" routerLink="/actualizarProducto/{{productos.codProducto}}">
-                <mat-icon><i class="fa-solid fa-pen-to-square"></i></mat-icon>
-              </button>
-              <button mat-icon-button color="warn" aria-label="eliminar" (click)="deleteProducto(productos)">
-                <mat-icon><i class="fa-solid fa-trash"></i></mat-icon>
-              </button>
-  
-             <button mat-icon-button color="primary" aria-label="verProductos" routerLink="/verProducto/{{productos.codProducto}}">
-                <mat-icon><i class="fa-solid fa-eye"></i></mat-icon>
-             </button>
-  
-            </td>
-          </ng-container>
-  
-          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
+
+      <div class="search">
+        <label>
+          <input type="text" placeholder="search here">
+          <ion-icon name="search"></ion-icon>
+        </label>
+      </div>
+
+      <div class="user">
+        <img src="./assets/img/user.png" alt="">
+      </div>
+
+    </div>
+
+    <!--------------------table------------------------------>
+    <div class="details">
+      <div class="orderHuespedes">
+        <div class="cardHeader">
+          <h2>Listado de Inventario</h2>
+          <button mat-icon-button aria-label="addHuesped" [routerLink]="['/crearProducto']">
+            <mat-icon><ion-icon name="add-circle"></ion-icon></mat-icon>
+          </button>
+          <!--a class="btn" [routerLink]="['/crearHuesped']"--><!--/a-->
+        </div>
+
+        <div class="example-table-container">
+
+          <!--Table-->
+          <table mat-table [dataSource]="productos" class="mat-elevation-z8" *ngIf="productos && productos.length > 0">
+
+            <!-- Id_huesped Column -->
+            <ng-container matColumnDef="codigo">
+              <th mat-header-cell *matHeaderCellDef>CODIGO</th>
+              <td mat-cell *matCellDef="let productos">{{productos.codProducto}} </td>
+            </ng-container>
+
+            <!-- tipDocumento Column -->
+            <ng-container matColumnDef="nombreProducto">
+              <th mat-header-cell *matHeaderCellDef>PRODUCTO</th>
+              <td mat-cell *matCellDef="let productos"> {{productos.nombreProducto}} </td>
+            </ng-container>
+
+            <!-- numDocumento Column -->
+            <ng-container matColumnDef="marca">
+              <th mat-header-cell *matHeaderCellDef>MARCA</th>
+              <td mat-cell *matCellDef="let productos"> {{productos.marca}} </td>
+            </ng-container>
+
+            <!-- nombre Column -->
+            <ng-container matColumnDef="cantidad">
+              <th mat-header-cell *matHeaderCellDef>CANTIDAD DISPONIBLE</th>
+              <td mat-cell *matCellDef="let productos"> {{productos.cantidad}} unidades</td>
+            </ng-container>
+
+            <!-- apellido Column -->
+            <ng-container matColumnDef="precio">
+              <th mat-header-cell *matHeaderCellDef>PRECIO X UNIDAD</th>
+              <td mat-cell *matCellDef="let productos">${{productos.precio}} COP </td>
+            </ng-container>
+
+            <!-- direccion Column -->
+            <ng-container matColumnDef="fechaRegistro">
+              <th mat-header-cell *matHeaderCellDef>FECHA DE REGISTRO</th>
+              <td mat-cell *matCellDef="let productos"> {{productos.fechaRegistro | date:'longDate'}} </td>
+            </ng-container>
+
+            <!-- numero de celular Column -->
+            <ng-container matColumnDef="horaRegistro">
+              <th mat-header-cell *matHeaderCellDef>HORA DE REGISTRO</th>
+              <td mat-cell *matCellDef="let productos"> {{productos.horaRegistro}}</td>
+            </ng-container>
+
+
+
+            <!-- editar Column -->
+            <ng-container matColumnDef="acciones">
+              <th mat-header-cell *matHeaderCellDef>ACCIONES</th>
+
+              <td mat-cell *matCellDef="let productos">
+
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                  <mat-icon><ion-icon name="apps"></ion-icon></mat-icon>
+                </button>
+
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item aria-label="editar" routerLink="/actualizarProducto/{{productos.codProducto}}">
+                    <mat-icon><ion-icon name="create" style="color: #000858 ;"></ion-icon></mat-icon>
+                    <span style="color: #000858;">Editar</span>
+                  </button>
+
+                  <button mat-menu-item color="warn" aria-label="eliminar" (click)="deleteProducto(productos)">
+                    <mat-icon><ion-icon name="trash" style="color: #000858 ;"></ion-icon></mat-icon>
+                    <span style="color: #000858;">Eliminar</span>
+                  </button>
+
+                  <button mat-menu-item color="primary" aria-label="verProducto"
+                    routerLink="/verProducto/{{productos.codProducto}}">
+                    <mat-icon><ion-icon name="eye" style="color: #000858;"></ion-icon></mat-icon>
+                    <span style="color: #000858;">Visualizar</span>
+                  </button>
+
+                </mat-menu>
+
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+        </div>
         <app-paginador *ngIf="paginador" [paginador]="paginador"></app-paginador>
-      </section>
-  
-  
+      </div>
     </div>
   </div>
+
+</div>

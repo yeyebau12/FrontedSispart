@@ -1,0 +1,75 @@
+<h4 class="card-title">
+    <a [routerLink]="['/listarHuespedes']" class="btn btn-light btn-xs">&laquo; volver</a>
+</h4>
+
+<div class="card bg-light">
+    <div class="card-header"><b>ApartaHotel Santandereno</b></div>
+    <div class="card-header"><b>NIT:</b> hdhdhd</div>
+    <div class="card-header"><b>Recepcionista:</b> hdhdhd</div>
+    <div class="card-header"><b>Telefono:</b> hdhdhd</div>
+    <div class="card-header"><b>Dirección:</b> hdhdhd</div>
+    
+
+    <div class="card-body">
+        <form>
+            <div class="form-group row" *ngIf="checkin.codHuesped">
+                <label for="tipoDocumento" class="col-sm-2 col-form-label">Tipo de Documento</label>
+                <div class="col-sm-6">
+                    <input type="text" name="tipoDocumento" class="form-control"
+                        value="{{checkin.codHuesped.tipoDocumento.nomTipoDocumento}}" disabled>
+                </div>
+            </div>
+
+            <div class="form-group row" *ngIf="checkin.codHabitacion">
+                <label for="numDocumento" class="col-sm-2 col-form-label">Numero de Documento</label>
+                <div class="col-sm-6">
+                    <input type="text" name="numDocumento" class="form-control"
+                        value="{{checkin.codHuesped.numDocumento}}" disabled>
+                </div>
+            </div>
+
+            <div class="form-group row" *ngIf="checkin.codHuesped">
+                <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+                <div class="col-sm-6">
+                    <input type="text" name="nombre" class="form-control"
+                        value="{{checkin.codHuesped.nombre}} {{checkin.codHuesped.apellido}}" disabled>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="descripcion" class="col-sm-2 col-form-label">Fecha de Ingreso</label>
+                <div class="col-sm-6">
+                    <input type="date" name="descripcion" class="form-control" [(ngModel)]="checkin.fechaEntrada">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="estado" class="col-sm-2 col-form-label">Fecha de Salida</label>
+                <div class="col-sm-6">
+                    <input type="date" name="estado" class="form-control" [(ngModel)]="checkin.fechaSalida">
+                </div>
+            </div>
+
+            <div class="formulario_group" id="grupo_codHabitacion">
+                <label for="codHabitacion" class="formulario_label form-label">Habitación</label>
+                <div class="formulario_grupo-input">
+                    <select class="formulario_select form-select" id="codHabitacion" name="codHabitacion" [(ngModel)]="checkin.codHabitacion" required>
+                        <option selected disabled value="">Escoja una opcion...</option>
+                        <option [ngValue]="codHabitacion" *ngFor="let codHabitacion of idHabitacion">
+                           {{codHabitacion.numHabitacion}} - {{codHabitacion.nombreHabitacion.nombre}}
+                        </option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Escoja un tipo de documento.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <input type="submit" (click)="createCheckin()" value="Ingrese el usuario" class="btn btn-secondary">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

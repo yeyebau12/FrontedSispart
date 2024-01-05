@@ -61,7 +61,7 @@ export class FacturaServiceService {
           console.error(e.error.mensaje);
           return throwError(e);
         }
-        this.router.navigate(['/listarHabitaciones']);
+        this.router.navigate(['/listarCheckin']);
         console.error(e.error.mensaje);
         return throwError(e);
 

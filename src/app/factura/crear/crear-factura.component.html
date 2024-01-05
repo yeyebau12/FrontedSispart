@@ -1,33 +1,38 @@
 <h4 class="card-title">
-    <a [routerLink]="['/listarHuespedes']" class="btn btn-light btn-xs">&laquo; volver</a>
+    <a [routerLink]="['/listarCheckin']" class="btn btn-light btn-xs">&laquo; volver</a>
 </h4>
 
 <div class="card bg-light">
-    <div class="card-header">{{titulo}}: {{factura.descripcion}}</div>
+    <div class="card-header"><b>ApartaHotel Santandereno</b></div>
+    <div class="card-header"><b>NIT:</b> hdhdhd</div>
+    <div class="card-header"><b>Recepcionista:</b> hdhdhd</div>
+    <div class="card-header"><b>Telefono:</b> hdhdhd</div>
+    <div class="card-header"><b>Dirección:</b> hdhdhd</div>
+    <div class="card-header"><b>{{titulo}}:</b> {{factura.descripcion}}</div>
 
     <div class="card-body">
         <form>
-            <div class="form-group row" *ngIf="factura.huesped">
+            <div class="form-group row" *ngIf="factura.checkin">
                 <label for="tipoDocumento" class="col-sm-2 col-form-label">Tipo de Documento</label>
                 <div class="col-sm-6">
                     <input type="text" name="tipoDocumento" class="form-control"
-                        value="{{factura.huesped.tipoDocumento.nomTipoDocumento}}" disabled>
+                        value="{{factura.checkin.codHuesped.tipoDocumento.nomTipoDocumento}}" disabled>
                 </div>
             </div>
 
-            <div class="form-group row" *ngIf="factura.huesped">
+            <div class="form-group row" *ngIf="factura.checkin">
                 <label for="numDocumento" class="col-sm-2 col-form-label">Numero de Documento</label>
                 <div class="col-sm-6">
-                    <input type="text" name="numDocumento" class="form-control" value="{{factura.huesped.numDocumento}}"
-                        disabled>
+                    <input type="text" name="numDocumento" class="form-control"
+                        value="{{factura.checkin.codHuesped.numDocumento}}" disabled>
                 </div>
             </div>
 
-            <div class="form-group row" *ngIf="factura.huesped">
+            <div class="form-group row" *ngIf="factura.checkin">
                 <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-6">
                     <input type="text" name="nombre" class="form-control"
-                        value="{{factura.huesped.nombre}} {{factura.huesped.apellido}}" disabled>
+                        value="{{factura.checkin.codHuesped.nombre}} {{factura.checkin.codHuesped.apellido}}" disabled>
                 </div>
             </div>
 
@@ -43,6 +48,36 @@
                 <div class="col-sm-6">
                     <input type="text" name="estado" class="form-control" [(ngModel)]="factura.estado">
                 </div>
+            </div>
+
+            <div class="card bg-light">
+
+                <div class="card-header"> <b>Datos de la Habitacíon</b></div>
+
+                <div class="form-group row" *ngIf="factura.checkin">
+                    <label for="nombre" class="col-sm-2 col-form-label">Habitacion N°</label>
+                    <div class="col-sm-6">
+                        <input type="text" name="nombre" class="form-control"
+                            value="{{factura.checkin.codHabitacion.numHabitacion}}" disabled>
+                    </div>
+                </div>
+
+                <div class="form-group row" *ngIf="factura.checkin">
+                    <label for="nombre" class="col-sm-2 col-form-label">Tipo de Habitación</label>
+                    <div class="col-sm-6">
+                        <input type="text" name="nombre" class="form-control"
+                            value="{{factura.checkin.codHabitacion.nombreHabitacion.nombre}}" disabled>
+                    </div>
+                </div>
+
+                <div class="form-group row" *ngIf="factura.checkin">
+                    <label for="nombre" class="col-sm-2 col-form-label">Valor de la Habitación</label>
+                    <div class="col-sm-6">
+                        <input type="text" name="nombre" class="form-control"
+                            value="${{factura.checkin.codHabitacion.nombreHabitacion.precioDia}} COP" disabled>
+                    </div>
+                </div>
+
             </div>
 
             <div class="form-group row">
@@ -74,7 +109,7 @@
                         <th>Producto</th>
                         <th>Precio</th>
                         <th>Cantidad</th>
-                        <th>Total</th>
+                        <th>Sub-Total</th>
                         <th>Eliminar</th>
                     </tr>
                 </thead>

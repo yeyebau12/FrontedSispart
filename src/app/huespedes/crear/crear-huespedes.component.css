@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,300&family=Ubuntu:wght@700&display=swap');
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+* {
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+.card{
+    position: absolute;
+    width: 100%;
+    max-width: 980px;
+    max-height: 580px;
+    display: grid;
+    grid-gap: 50px;
+    background:#fff;
+    overflow: auto;
+    border-radius: 16px;
+    justify-content: center;
+    
+}
+
+.card_header{
+    width: 100%;
+    background: #000858;
+    color: #fff;
+
+}
+.card_content{
+    position: relative;
+    display: grid;
+    width: 100%;
+    border-radius: 13px;
+    padding: 15px;
+    justify-content: center;
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.formulario_label {
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    color: #000858;
+}
+
+.formulario_group-input {
+    position: relative;
+    background: #fff;
+
+}
+
+.formulario_input {
+    width: 100%;
+    background: #fff;
+    border-radius: 4px;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 40px 0px 6px;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+
+
+}
+
+.formulario_select{
+    width: 100%;
+    border-radius: 4px;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 40px 0px 6px;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.formulario_input-error {
+    font-size: 11px;
+    margin-bottom: 0;
+    display: none;
+
+
+}
+
+
+.formulario_input-error-Activo {
+    display: block;
+
+}
+
+.formulario_validacion-estado {
+    position: absolute;
+    bottom: 15px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+
+.formulario_mensaje {
+    grid-column: span 3;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 15px;
+    border-radius: 4px;
+    display: none;
+}
+
+.formulario_group-buttom {
+    grid-column: span 3;
+}
+
+.formulario_mensaje-Activo {
+    display: block;
+
+}
+
+
+.card_title {
+    position: relative;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    height: 25px;
+    line-height: 25px;
+    bottom: 8px;
+}
+
+
+
+.group-button-enviar {
+    display: flex;
+    background: #000858;
+    color: #fff;
+    height: 35px;
+    line-height: 35px;
+    margin-left: 8px;
+}
+
+
+
+.group-button-cancelar {
+    display: flex;
+    background: #D10606;
+    color: #fff;
+    height: 35px;
+    line-height: 35px;
+}
+

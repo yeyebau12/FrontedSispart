@@ -1,13 +1,14 @@
 
-import { Huesped } from "./huesped";
+
+import { Checkin } from "./checkin";
 import { ItemFactura } from "./item-factura";
 
 export class Factura {
 
-    codFactura!: number;
+    codFactura?: number;
     descripcion!: string;
     itemFactura: Array<ItemFactura> = [];
-    huesped!: Huesped;
+    checkin!: Checkin;
     estado!: string;
     total!: number;
     fechaCreacion!: string;

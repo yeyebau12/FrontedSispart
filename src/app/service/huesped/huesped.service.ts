@@ -46,6 +46,7 @@ export class HuespedService {
       map((response: any) => {
         (response.content as Huesped[]).map(huesped => {
           huesped.nombre = huesped.nombre.toUpperCase();
+          huesped.apellido = huesped.apellido.toUpperCase();
           return huesped;
         });
         return response;
@@ -61,7 +62,7 @@ export class HuespedService {
           console.error(e.error.mensaje);
           return throwError(e);
         }
-        console.error(e.error.mensaje);
+        console.error(e.error);
         return throwError(e);
 
       })

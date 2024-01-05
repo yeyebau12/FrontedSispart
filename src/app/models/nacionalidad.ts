@@ -3,7 +3,8 @@ export class Nacionalidad {
     codNacion?:number;
     nombre!:string;
 
-    constructor( nombre:string, id?:number) {
+    constructor(nombre:string) {
         this.nombre = nombre;
+
     }
 }

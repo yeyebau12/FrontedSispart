@@ -4,11 +4,10 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, flatMap, map } from 'rxjs';
 import { Factura } from 'src/app/models/factura';
-import { Huesped } from 'src/app/models/huesped';
 import { ItemFactura } from 'src/app/models/item-factura';
 import { Producto } from 'src/app/models/producto';
+import { CheckInService } from 'src/app/service/checkIn/check-in.service';
 import { FacturaServiceService } from 'src/app/service/factura/factura.service';
-import { HuespedService } from 'src/app/service/huesped/huesped.service';
 import { ProductoService } from 'src/app/service/producto/producto.service';
 
 @Component({
@@ -26,7 +25,7 @@ export class CrearFacturaComponent {
   productosFiltrados!: Observable<Producto[]>;
 
   constructor(
-    private huespedService: HuespedService, 
+    private CheckinService: CheckInService, 
     private productoService: ProductoService, 
     private facturaService: FacturaServiceService,
     private router:Router, 
@@ -37,8 +36,8 @@ export class CrearFacturaComponent {
   ngOnInit() {
 
     this.activatedRoute.paramMap.subscribe((params: any) => {
-      let codHuesped = +params.get('codHuesped');
-      this.huespedService.viewHuesped(codHuesped).subscribe(huesped => this.factura.huesped = huesped);
+      let codCheckin = +params.get('codCheckin');
+      this.CheckinService.viewCheckin(codCheckin).subscribe(checkin => this.factura.checkin = checkin);
     });
 
     this.productosFiltrados = this.autocompleteControl.valueChanges.pipe(
@@ -64,7 +63,7 @@ export class CrearFacturaComponent {
     this.facturaService.createFactura(this.factura).subscribe(form => {
 
       console.log(this.factura);
-      this.router.navigate(['/listarHuespedes']);
+      this.router.navigate(['/listarCheckin']);
     });
  }
 

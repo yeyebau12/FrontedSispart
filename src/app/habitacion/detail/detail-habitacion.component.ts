@@ -11,13 +11,17 @@ import { HabitacionService } from 'src/app/service/habitacion/habitacion.service
 export class DetailHabitacionComponent {
 
   habitacion: Habitaciones = {
-    nombreHabitacion: '',
+    nombreHabitacion: {
+      nombre: '',
+      precioDia: 0
+    },
     descripHabitacion: '',
     numHabitacion: 0,
     pisoHabitacion: 0,
     maxPersonasDisponibles: 0,
-    precioDia: 0,
-    estadoHabitacion: '',
+    estadoHabitacion:{
+      nombre: ''
+    },
     imagenHabitacion: '',
    
   }

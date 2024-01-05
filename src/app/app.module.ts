@@ -57,6 +57,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { IonicModule } from '@ionic/angular';
+import { ListarChecInComponent } from './checkIn/listar/listar-chec-in.component';
+import { CrearChecInComponent } from './checkIn/crear/crear-chec-in.component';
+import { DetailCheckInComponent } from './checkIn/detail/detail-check-in.component';
 
 
 
@@ -85,7 +89,10 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     ListarHabitacionComponent,
     DetailProductoComponent,
     DetailFacturaComponent,
-    CrearFacturaComponent
+    CrearFacturaComponent,
+    ListarChecInComponent,
+    CrearChecInComponent,
+    DetailCheckInComponent
   ],
   imports: [
     BrowserModule,
@@ -113,7 +120,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatListModule,
     MatGridListModule,
     MatMenuModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    IonicModule.forRoot()
   ],
 
   exports: [

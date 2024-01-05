@@ -4,6 +4,7 @@ export class ItemFactura {
     cantidad: number = 1;
     producto!: Producto;
     subtotal!: number;
+    cantidadTotal!: number;
 
 
     constructor(){}
@@ -15,5 +16,9 @@ export class ItemFactura {
 
     public calcularSubTotal(): number {
         return this.cantidad * this.producto.precio;
+    }
+
+    public calcCantidadTotal(): number {
+        return  this.producto.cantidad - this.cantidad;
     }
 }

@@ -8,7 +8,7 @@
 
     <div class=" form-group row">
         <label for="nombreHabitacion" class="form-label"><b>Nombre de la Habitación: </b>
-            {{habitacion.nombreHabitacion}}</label>
+            {{habitacion.nombreHabitacion.nombre}}</label>
     </div>
 
     <div class=" form-group row">
@@ -26,11 +26,11 @@
     </div>
 
     <div class=" form-group row">
-        <label for="precioDia" class="form-label"><b>Precio x Día: </b>${{habitacion.precioDia}} COP</label>
+        <label for="precioDia" class="form-label"><b>Precio x Día: </b>${{habitacion.nombreHabitacion.precioDia}} COP</label>
     </div>
 
     <div class=" form-group row">
-        <label for="estadoHabitacion"><b>Estado de la Habitación: </b> {{habitacion.estadoHabitacion}}</label>
+        <label for="estadoHabitacion"><b>Estado de la Habitación: </b> {{habitacion.estadoHabitacion.nombre}}</label>
     </div>
 
     <div class=" form-group row">
