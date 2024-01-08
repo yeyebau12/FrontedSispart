@@ -18,7 +18,7 @@ import { RegionService } from 'src/app/service/region/region.service';
 })
 export class ActualizarHuespedesComponent {
 
-  form!: FormGroup;
+  form:any ={};
   huespedes!: Huesped;
 
   idNacionalidad: Nacionalidad[] = [];
@@ -41,33 +41,6 @@ export class ActualizarHuespedesComponent {
   ngOnInit(): void {
     this.uploadHuesped()
 
-    this.form.get('nacionalidad')?.valueChanges.subscribe(value => {
-
-      this.regionService.listarRegionesByNacionalidad(value.codNacion).subscribe(
-        resp => {
-          this.idRegion = resp;
-          console.log(resp);
-
-        },
-        err => {
-          console.error(err);
-        });
-
-
-    });
-
-
-    this.nacionalidadService.listarNacionalidades().subscribe(
-      resp => {
-        this.idNacionalidad = resp;
-        console.log(resp);
-      },
-      (error: any) => {
-        console.error(error);
-
-      }
-    );
-
 
 
   }
@@ -77,7 +50,7 @@ export class ActualizarHuespedesComponent {
     this.activatedRoute.params.subscribe(params => {
       let codHuesped = params['codHuesped'];
       if (codHuesped) {
-        this.huespedService.viewHuesped(codHuesped).subscribe((form) => this.huespedes = form)
+        this.huespedService.viewHuesped(codHuesped).subscribe((form) => this.form = form)
 
       }
     })

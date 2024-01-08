@@ -1,149 +1,136 @@
-<div class="container mt-5">
-    <div class="row justify-content-center">
+<div class="container">
+    <div class="row-mt-6">
 
-        <mat-card class="card md-padding">
+    </div>
 
-            <mat-card-header class="card_header">
-                <mat-card-title class="card_title">Actualización del Huesped</mat-card-title>
+    <div class="card">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Actualice los Datos del Huesped</mat-card-title>
+                <mat-card-subtitle>Actualizacion del Huesped </mat-card-subtitle>
             </mat-card-header>
 
-
-            <mat-card-content class="card_content">
-
-                <form class="formulario needs-validation" novalidate #f="ngForm">
-
-
-
-                    <div class="formulario_group" id="grupo_numeroDocumento">
-                        <label for="numDocumento" class="formulario_label form-label">Número de Documento</label>
-                        <div class="formulario_group-input">
-                            <input type="number" class="formulario_input form-control"
-                                [(ngModel)]="huespedes.numDocumento" name="numDocumento"
-                                placeholder="Número de Documento" disabled>
-                            <div class="invalid-feedback">
-                                El número de documento no debe ir vacio y solo puede contener números sin
-                                espacios ni letras
-                            </div>
+            <mat-card-content>
+                <form name="form" (ngSubmit)="updateHuesped()" novalidate #f="ngForm">
+                    <div class=" form-group row">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="form.nombre" name="nombre"
+                                placeholder="Enter text" required>
                         </div>
                     </div>
 
-                    <div class="formulario_group" id="grupo_nombre">
-                        <label for="nombre" class="formulario_label form-label">Nombre</label>
-                        <div class="formulario_group-input">
-                            <input type="text" class="formulario_input form-control" id="nombre"
-                                [(ngModel)]="huespedes.nombre" name="nombre" placeholder="Nombre" required>
-                            <div class="invalid-feedback">
-                                El nombre no debe ir vacío y solo puede contener espacios y letras
-                            </div>
+                    <div class=" form-group row">
+                        <label for="apellido" class="form-label">Apellido</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="form.apellido" name="apellido">
                         </div>
                     </div>
 
-                    <div class="formulario_group" id="grupo_apellido">
-                        <label for="apellido" class="formulario_label form-label">Apellido</label>
-                        <div class="formulario_group-input">
-                            <input type="text" class="formulario_input form-control" id="apellido"
-                                [(ngModel)]="huespedes.apellido" name="apellido" placeholder="Ahumada Gomez" required>
-                            <div class="invalid-feedback">
-                                El apellido no debe ir vacío y solo puede contener espacios y letras
-                            </div>
+                    <div class=" form-group row">
+                        <label for="direccion" class="form-label">Direccion</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="form.direccion" name="direccion">
                         </div>
                     </div>
 
-                    <div class="formulario_group" id="grupo_fechaNacimiento">
-                        <label for="fechaNacimiento" class="formulario_label form-label">Fecha de Nacimiento</label>
-                        <div class="formulario_group-input">
-                            <input type="date" class="formulario_input form-control" id="fechaNacimiento"
-                                [(ngModel)]="huespedes.fechaNacimiento" name="fechaNacimiento" required>
-                            <div class="invalid-feedback">
-                                Ingrese el dia - mes - año de la fecha de nacimiento del huesped, no puede ir vacío !.
-                            </div>
+                    <div class=" form-group row">
+                        <label for="numCelular" class="form-label">Numero de Celular</label>
+                        <div>
+                            <input type="number" class="form-control" [(ngModel)]="form.numCelular" name="numCelular">
                         </div>
                     </div>
 
-                    <div class="formulario_group" id="grupo_numTelefono">
-                        <label for="numCelular" class="formulario_label form-label">Número de Telefono</label>
-                        <div class="formulario_group-input">
-                            <input type="tel" class="formulario_input form-control" id="numCelular" name="numCelular"
-                                placeholder="Número de Telefono" [(ngModel)]="huespedes.numCelular" required>
-                            <div class="invalid-feedback">
-                                El número de telefono no debe ir vacío y solo puede contener
-                                números
-                            </div>
+                    <div class=" form-group row">
+                        <label for="correo" class="form-label">Correo Electronico</label>
+                        <div>
+                            <input type="correo" class="form-control" [(ngModel)]="form.correo" name="correo">
                         </div>
                     </div>
 
-
-                    <div class="formulario_group" id="grupo_email">
-                        <label for="correo" class="formulario_label form-label">E-mail</label>
-                        <div class="formulario_group-input input-group has-validation">
-                            <input type="email" class="formulario_input form-control" id="correo" name="correo"
-                                [(ngModel)]="huespedes.correo" aria-describedby="inputGroupPrepend"
-                                placeholder="correo electronico" required>
-                            <div class="invalid-feedback">
-                                El e-mail no debe ir vacío o no es un e-mail valido.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="formulario_group" id="grupo_nacionalidad">
-                        <label for="nacionalidad" class="formulario_label form-label">Nacionalidad</label>
-                        <div class="formulario_grupo-input">
-                            <select class="formulario_select form-select" id="nacionalidad" name="nacionalidad"
+                    <div class=" form-group row">
+                        <label for="codTipoDocumento">Tipo de Documento</label>
+                        <div>
+                            <select class="form-select form-select-sm" aria-label="tipoDocumento" id="tipoDocumento"
+                                name="tipoDocumento" [(ngModel)]="form.tipoDocumento" placeholder="Escoja una opción"
                                 required>
-                                <option selected disabled value="">Escoja una opcion...</option>
-                                <option [ngValue]="nacionalidad" *ngFor="let nacionalidad of idNacionalidad">
+                                <option [ngValue]="tipoDocumento" *ngFor="let tipoDocumento of idTipoDocumento">
+                                    {{tipoDocumento.nomTipoDocumento}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="numDocumento" class="form-label">Numero de Documento</label>
+                        <div>
+                            <input type="number" class="form-control" [(ngModel)]="form.numDocumento"
+                                name="numDocumento">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="codNacion">Nacionalidad</label>
+                        <div>
+                            <select class="form-select form-select-sm" aria-label="nacionalidad" id="nacionalidad"
+                                name="nacionalidad" [(ngModel)]="form.nacionalidad" placeholder="Escoja una opción"
+                                required>
+                                <option [ngValue]="nacionalidad" *ngFor="let nacionalidad of  idNacionalidad">
                                     {{nacionalidad.nombre}}
                                 </option>
                             </select>
-                            <div class="invalid-feedback">
-                                Escoja una nacionalidad.
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="lugarOrigen" class="form-label">Lugar de Origen</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="form.lugarOrigen" name="lugarOrigen">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="nomContactoEmergencia" class="form-label">Nombre del Contacto de Emergencia</label>
+                        <div>
+                            <input type="text" class="form-control" [(ngModel)]="form.nomContactoEmergencia"
+                                name="nomContactoEmergencia">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="numContactoEmergencia" class="form-label">Numero de Contacto de Emergencia</label>
+                        <div>
+                            <input type="tel" class="form-control" [(ngModel)]="form.numContactoEmergencia"
+                                name="numContactoEmergencia">
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <label for="estadoHuesped" class="form-label">Estado del Huesped</label>
+                        <div>
+                            <mat-slide-toggle for="estadoHuesped" [(ngModel)]="form.estadoHuesped" name="estadoHuesped"
+                                class=" estadoHuesped" id=" estadoHuesped" [color]="color" [checked]="checked"
+                                [disabled]="disabled">
+                            </mat-slide-toggle>
+                        </div>
+                    </div>
+
+                    <div class=" form-group row">
+                        <mat-card-actions align="end">
+                            <div>
+                                <button mat-stroked-button color="warn">Cancelar</button>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="formulario_group" id="grupo_lugarOrigen">
-                        <label for="lugarOrigen" class="formulario_label form-label">Región</label>
-                        <div class="formulario_grupo-input">
-                            <select class="formulario_select form-select" id="lugarOrigen" name="lugarOrigen" required>
-                                <option selected disabled value="">Escoja una opcion...</option>
-                                <option [ngValue]="lugarOrigen" *ngFor="let lugarOrigen of idRegion">
-                                    {{lugarOrigen.nombre}}</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Escoja una region.
+                            <div>
+                                <button mat-stroked-button color="primary">Guardar</button>
                             </div>
-                        </div>
+                        </mat-card-actions>
                     </div>
-
-                    <div class="formulario_group" id="grupo_nomContacEmergencia">
-                        <label for="nomContacEmergencia" class="formulario_label form-label">Contacto de
-                            Emergencia</label>
-                        <div class="formulario_group-input">
-                            <input type="text" class="formulario_input form-control" id="nomContacEmergencia"
-                                [(ngModel)]="huespedes.nomContactoEmergencia" name="nomContacEmergencia"
-                                placeholder="Contacto de Emergencia">
-                        </div>
-                    </div>
-
-                    <div class="formulario_group" id="grupo_numContacEmergencia">
-                        <label for="numContacEmergencia" class="formulario_label form-label">Número del Contacto de
-                            Emergencia</label>
-                        <div class="formulario_group-input">
-                            <input type="tel" class="formulario_input form-control" id="numContacEmergencia"
-                                [(ngModel)]="huespedes.numContactoEmergencia" name="numContacEmergencia"
-                                placeholder="Número del Contacto">
-                        </div>
-                    </div>
-
-                    <mat-card-actions class="formulario_group-buttom" align="end">
-                        <button mat-fab extended class="group-button-cancelar" type="button"
-                            (click)="volver()">Cancelar</button>
-                        <button mat-fab extended class="group-button-enviar" type="submit" (click)="validation()">Enviar
-                            <ion-icon name="send"></ion-icon></button>
-                    </mat-card-actions>
                 </form>
 
             </mat-card-content>
+
         </mat-card>
     </div>
+
 </div>
