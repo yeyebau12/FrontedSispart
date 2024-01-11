@@ -12,7 +12,7 @@ import { ModalService } from './modal.service';
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.css']
+  styleUrls: ['./detail.component.css'],
 })
 export class DetailComponent {
   @Input() huesped: Huesped = {
@@ -21,24 +21,24 @@ export class DetailComponent {
     numCelular: 0,
     correo: '',
     tipoDocumento: {
-      nomTipoDocumento: ''
+      nomTipoDocumento: '',
     },
     numDocumento: 0,
     fechaNacimiento: new Date(),
     edad: 0,
     nacionalidad: {
-      nombre: ''
+      nombre: '',
     },
     lugarOrigen: {
       nacionalidad: {
-        nombre: ''
+        nombre: '',
       },
-      nombre: ''
+      nombre: '',
     },
     nomContactoEmergencia: '',
     numContactoEmergencia: 0,
-    estadoHuesped: false,
-    checkin: []
+    estadoHuesped: true,
+    checkin: [],
   };
 
   idTipoDocumento: TipoDocumento[] = [];
@@ -47,18 +47,9 @@ export class DetailComponent {
   checked = true;
   disabled = false;
 
+  constructor(private router: Router, public modalService: ModalService) {}
 
-
-  constructor(
-    private router: Router,
-    public modalService: ModalService
-
-  ) {
-
-  }
-
-  ngOnInit() { }
-
+  ngOnInit() {}
 
   onClickCancel() {
     this.modalService.closeModal();
@@ -68,13 +59,7 @@ export class DetailComponent {
     this.router.navigate(['/listarHuespedes']);
   }
 
-
-
-
-
-
+  obtenerEstadoHuesped(): String {
+    return this.huesped.estadoHuesped ? 'Activo' : 'Inactivo';
+  }
 }
-
-
-
-

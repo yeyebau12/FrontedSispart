@@ -20,7 +20,7 @@ export class ActualizarHuespedesComponent {
 
   form:any ={};
   huespedes!: Huesped;
-
+  idTipoDocumento:TipoDocumento[] =[];
   idNacionalidad: Nacionalidad[] = [];
   idRegion: Region[] = [];
   idHabitacion: Habitaciones[] = [];
