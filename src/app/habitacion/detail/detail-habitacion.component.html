@@ -1,51 +1,72 @@
 <h2>Visualización De Los Datos De La Habitación</h2>
 
 <form name="form" novalidate #f="ngForm">
+  <div class="form-group row">
+    <label for="codHabitacion" class="form-label"
+      ><b>Codigo: </b>{{ habitacion.codHabitacion }}</label
+    >
+  </div>
 
-    <div class=" form-group row">
-        <label for="codHabitacion" class="form-label"><b>Codigo: </b>{{habitacion.codHabitacion}}</label>
-    </div>
+  <div class="form-group row">
+    <label for="nombreHabitacion" class="form-label"
+      ><b>Nombre de la Habitación: </b>
+      {{ habitacion.nombreHabitacion.nombre }}</label
+    >
+  </div>
 
-    <div class=" form-group row">
-        <label for="nombreHabitacion" class="form-label"><b>Nombre de la Habitación: </b>
-            {{habitacion.nombreHabitacion.nombre}}</label>
-    </div>
+  <div class="form-group row">
+    <label for="numHabitacion" class="form-label"
+      ><b>Numero de Habitacion: </b>{{ habitacion.numHabitacion }}</label
+    >
+  </div>
 
-    <div class=" form-group row">
-        <label for="numHabitacion" class="form-label"><b>Numero de Habitacion: </b>{{habitacion.numHabitacion}}</label>
-    </div>
+  <div class="form-group row">
+    <label for="pisoHabitacion" class="form-label"
+      ><b>Piso de la Habitación: </b> {{ habitacion.pisoHabitacion }}</label
+    >
+  </div>
 
-    <div class=" form-group row">
-        <label for="pisoHabitacion" class="form-label"><b>Piso de la Habitación: </b>
-            {{habitacion.pisoHabitacion}}</label>
-    </div>
+  <div class="form-group row">
+    <label for="maxPersonasDisponibles" class="form-label"
+      ><b>Cantidad Maxima de Personas en la Habitación: </b>
+      {{ habitacion.maxPersonasDisponibles }} Personas</label
+    >
+  </div>
 
-    <div class=" form-group row">
-        <label for="maxPersonasDisponibles" class="form-label"><b>Cantidad Maxima de Personas en la Habitación: </b>
-            {{habitacion.maxPersonasDisponibles}} Personas</label>
-    </div>
+  <div class="form-group row">
+    <label for="precioXPersona" class="form-label"
+      ><b>Precio x Día: </b>${{
+        habitacion.nombreHabitacion.precioXPersona
+      }}
+      COP</label
+    >
+  </div>
 
-    <div class=" form-group row">
-        <label for="precioDia" class="form-label"><b>Precio x Día: </b>${{habitacion.nombreHabitacion.precioDia}} COP</label>
-    </div>
+  <div class="form-group row">
+    <label for="estadoHabitacion"
+      ><b>Estado de la Habitación: </b>
+      {{ habitacion.estadoHabitacion.nombre }}</label
+    >
+  </div>
 
-    <div class=" form-group row">
-        <label for="estadoHabitacion"><b>Estado de la Habitación: </b> {{habitacion.estadoHabitacion.nombre}}</label>
-    </div>
-
-    <div class=" form-group row">
-        <label for="descripHabitacion"><b>Descripción de la Habitación: </b> {{habitacion.descripHabitacion}}</label>
-    </div>
-
-
+  <div class="form-group row">
+    <label for="descripHabitacion"
+      ><b>Descripción de la Habitación: </b>
+      {{ habitacion.descripHabitacion }}</label
+    >
+  </div>
 </form>
 
-<div class=" form-group row">
-    <mat-card-actions align="end">
-        <div>
-            <button mat-raised-button color="primary" (click)="volver()"><i class="fa-solid fa-arrow-rotate-left fa-sm"
-                    style="color: #f6f7f9;"></i> Regresar</button>
-        </div>
-
-    </mat-card-actions>
+<div class="form-group row">
+  <mat-card-actions align="end">
+    <div>
+      <button mat-raised-button color="primary" (click)="volver()">
+        <i
+          class="fa-solid fa-arrow-rotate-left fa-sm"
+          style="color: #f6f7f9"
+        ></i>
+        Regresar
+      </button>
+    </div>
+  </mat-card-actions>
 </div>

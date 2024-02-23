@@ -1,93 +1,162 @@
 <div class="open animation fadeIn" *ngIf="modalService.modal">
-
-  <div class="modal" tabindex="-1" role="dialog" style="display: block;">
+  <div class="modal" tabindex="-1" role="dialog" style="display: block">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 mat-dialog-title><b> DATOS DEL HUESPED: {{huesped.nombre}} {{huesped.apellido}}</b></h4>
-          <button (click)="onClickCancel()" type="button" mat-icon-button
-            aria-label="Example icon button with a vertical three dot icon">
-            <mat-icon><i class="fa-solid fa-xmark" style="color: #e50606;"></i></mat-icon>
+          <h4 mat-dialog-title>
+            <b>
+              DATOS DEL HUESPED: {{ huesped.nombre }} {{ huesped.apellido }}</b
+            >
+          </h4>
+          <button
+            (click)="onClickCancel()"
+            type="button"
+            mat-icon-button
+            aria-label="Example icon button with a vertical three dot icon"
+          >
+            <mat-icon
+              ><i class="fa-solid fa-xmark" style="color: #e50606"></i
+            ></mat-icon>
           </button>
         </div>
         <div class="modal-body">
-
           <mat-card class="card md-padding">
             <mat-card-content class="card_content">
               <form class="formulario">
-
                 <div class="formulario_group">
-                  <label for="tipoDocumento" class="formulario_label form-label"><b>Fecha de Nacimiento</b></label>
+                  <label for="tipoDocumento" class="formulario_label form-label"
+                    ><b>Fecha de Nacimiento</b></label
+                  >
                   <div class="formulario_input">
-                    <input type="text" class="formulario_input" value="{{huesped.fechaNacimiento}}" disabled>
+                    <input
+                      type="text"
+                      class="formulario_input"
+                      value="{{ huesped.fechaNacimiento }}"
+                      disabled
+                    />
                   </div>
                 </div>
 
                 <div class="formulario_group">
-                  <label for="tipoDocumento" class="formulario_label form-label"><b>Edad</b></label>
+                  <label for="tipoDocumento" class="formulario_label form-label"
+                    ><b>Edad</b></label
+                  >
                   <div class="formulario_input">
-                    <input type="text" class="formulario_input" value="{{huesped.edad}} años" disabled>
+                    <input
+                      type="text"
+                      class="formulario_input"
+                      value="{{ huesped.edad }} años"
+                      disabled
+                    />
                   </div>
                 </div>
 
                 <div class="formulario_group">
-                  <label for="tipoDocumento" class="formulario_label form-label"><b>Nacionalidad</b></label>
+                  <label for="tipoDocumento" class="formulario_label form-label"
+                    ><b>Nacionalidad</b></label
+                  >
                   <div class="formulario_input">
-                    <input type="text" class="formulario_input" value="{{huesped.nacionalidad.nombre}}" disabled>
+                    <input
+                      type="text"
+                      class="formulario_input"
+                      value="{{ huesped.nacionalidad.nombre }}"
+                      disabled
+                    />
                   </div>
                 </div>
 
                 <div class="formulario_group">
-                  <label for="tipoDocumento" class="formulario_label form-label"><b>Región</b></label>
+                  <label for="tipoDocumento" class="formulario_label form-label"
+                    ><b>Región</b></label
+                  >
                   <div class="formulario_input">
-                    <input type="text" class="formulario_input" value="{{huesped.lugarOrigen.nombre}}" disabled>
-                  </div>
-                </div>
-
-
-
-                <div class="formulario_group">
-                  <label for="tipoDocumento" class="formulario_label form-label"><b>Contacto de Emergencia</b></label>
-                  <div class="formulario_input">
-                    <input type="text" class="formulario_input" value="{{huesped.nomContactoEmergencia}}" disabled>
-                  </div>
-                </div>
-
-                <div class="formulario_group">
-                  <label for="tipoDocumento" class="formulario_label form-label"><b>Número de Contacto</b></label>
-                  <div class="formulario_input">
-                    <input type="text" class="formulario_input" value="{{huesped.numContactoEmergencia}}" disabled>
+                    <input
+                      type="text"
+                      class="formulario_input"
+                      value="{{ huesped.lugarOrigen.nombre }}"
+                      disabled
+                    />
                   </div>
                 </div>
 
                 <div class="formulario_group">
-                  <label for="tipoDocumento" class="formulario_label form-label"><b>Correo Electronico</b></label>
+                  <label for="tipoDocumento" class="formulario_label form-label"
+                    ><b>Contacto de Emergencia</b></label
+                  >
                   <div class="formulario_input">
-                    <input type="text" class="formulario_input" value="{{huesped.correo}}" disabled>
+                    <input
+                      type="text"
+                      class="formulario_input"
+                      value="{{ huesped.nomContactoEmergencia }}"
+                      disabled
+                    />
                   </div>
                 </div>
 
                 <div class="formulario_group">
-                  <label for="tipoDocumento" class="formulario_label form-label"><b>Estado del Huesped</b></label>
+                  <label for="tipoDocumento" class="formulario_label form-label"
+                    ><b>Número de Contacto</b></label
+                  >
                   <div class="formulario_input">
-                    <input type="text" class="formulario_input" value="{{obtenerEstadoHuesped()}}" disabled>
+                    <input
+                      type="text"
+                      class="formulario_input"
+                      value="{{ huesped.numContactoEmergencia }}"
+                      disabled
+                    />
                   </div>
                 </div>
 
+                <div class="formulario_group">
+                  <label for="tipoDocumento" class="formulario_label form-label"
+                    ><b>Correo Electronico</b></label
+                  >
+                  <div class="formulario_input">
+                    <input
+                      type="text"
+                      class="formulario_input"
+                      value="{{ huesped.correo }}"
+                      disabled
+                    />
+                  </div>
+                </div>
+
+                <div class="formulario_group">
+                  <label for="tipoDocumento" class="formulario_label form-label"
+                    ><b>Estado del Huesped</b></label
+                  >
+                  <div class="formulario_input">
+                    <input
+                      type="text"
+                      class="formulario_input"
+                      value="{{ obtenerEstadoHuesped() }}"
+                      disabled
+                    />
+                  </div>
+                </div>
               </form>
-
             </mat-card-content>
           </mat-card>
           <div class="mt-3">
             <mat-card class="card md-padding">
               <mat-card-content class="card_content">
                 <div class="row">
-                  <div class="alert alert-info my-4" *ngIf="huesped && huesped.checkin && huesped.checkin.length == 0">
-                    No hay Ingresos del huesped: {{huesped.nombre }} {{huesped.apellido}}
+                  <div
+                    class="alert alert-info my-4"
+                    *ngIf="
+                      huesped && huesped.checkin && huesped.checkin.length == 0
+                    "
+                  >
+                    No hay Ingresos del huesped: {{ huesped.nombre }}
+                    {{ huesped.apellido }}
                   </div>
 
-                  <table class="table table-bordered table-striped my-4"
-                    *ngIf="huesped && huesped.checkin && huesped.checkin.length > 0">
+                  <table
+                    class="table table-bordered table-striped my-4"
+                    *ngIf="
+                      huesped && huesped.checkin && huesped.checkin.length > 0
+                    "
+                  >
                     <thead>
                       <th>Codigo de checkin</th>
                       <th>Fecha de Ingreso</th>
@@ -100,27 +169,47 @@
                     </thead>
                     <tbody>
                       <tr *ngFor="let checkin of huesped.checkin">
-                        <td>{{checkin.codCheckin}}</td>
-                        <td>{{checkin.fechaEntrada}}</td>
-                        <td>{{checkin.fechaSalida}}</td>
-                        <td>{{checkin.codHabitacion.numHabitacion}}</td>
-                        <td>{{checkin.codHabitacion.nombreHabitacion.nombre}}</td>
-                        <td>{{checkin.codHabitacion.nombreHabitacion.precioDia}}</td>
-                        <td> <button mat-icon-button color="primary" aria-label="verCheckin"
-                            [routerLink]="['/verCheckin',checkin.codCheckin]">
-                            <mat-icon><i class="fa-solid fa-eye fa-sm"></i></mat-icon>
+                        <td>{{ checkin.codCheckin }}</td>
+                        <td>{{ checkin.fechaEntrada }}</td>
+                        <td>{{ checkin.fechaSalida }}</td>
+                        <td>{{ checkin.codHabitacion.numHabitacion }}</td>
+                        <td>
+                          {{ checkin.codHabitacion.nombreHabitacion.nombre }}
+                        </td>
+                        <td>
+                          {{
+                            checkin.codHabitacion.nombreHabitacion
+                              .precioXPersona
+                              | currency : "COP" : "symbol" : "1.0-0"
+                          }}
+                        </td>
+                        <td>
+                          <button
+                            mat-icon-button
+                            color="primary"
+                            aria-label="verCheckin"
+                            [routerLink]="['/verCheckin', checkin.codCheckin]"
+                          >
+                            <mat-icon
+                              ><i class="fa-solid fa-eye fa-sm"></i
+                            ></mat-icon>
                           </button>
                         </td>
                         <td>
-                          <button mat-icon-button color="warn" aria-label="eliminar">
-                            <mat-icon><i class="fa-solid fa-trash fa-sm"></i></mat-icon>
+                          <button
+                            mat-icon-button
+                            color="warn"
+                            aria-label="eliminar"
+                          >
+                            <mat-icon
+                              ><i class="fa-solid fa-trash fa-sm"></i
+                            ></mat-icon>
                           </button>
                         </td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
-
               </mat-card-content>
             </mat-card>
           </div>
@@ -128,5 +217,4 @@
       </div>
     </div>
   </div>
-
 </div>

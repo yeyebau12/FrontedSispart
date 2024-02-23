@@ -3,7 +3,9 @@
     <ul>
       <li>
         <a href="">
-          <span class="icon"><img src="./assets/img/Logo_Santandereano3.png" alt="Logo"></span>
+          <span class="icon"
+            ><img src="./assets/img/Logo_Santandereano3.png" alt="Logo"
+          /></span>
           <span class="title"></span>
         </a>
       </li>
@@ -37,14 +39,14 @@
       </li>
 
       <li>
-        <a  [routerLink]="['/listarHabitaciones']">
+        <a [routerLink]="['/listarHabitaciones']">
           <span class="icon"><ion-icon name="bed"></ion-icon></span>
           <span class="title">Habitaciones</span>
         </a>
       </li>
 
       <li>
-        <a  [routerLink]="['/listarProductos']">
+        <a [routerLink]="['/listarProductos']">
           <span class="icon"><ion-icon name="flask"></ion-icon></span>
           <span class="title">Productos</span>
         </a>
@@ -56,7 +58,6 @@
           <span class="title">Informes</span>
         </a>
       </li>
-
 
       <li>
         <a href="">
@@ -72,8 +73,6 @@
         </a>
       </li>
 
-
-
       <li>
         <a href="">
           <span class="icon"><ion-icon name="exit"></ion-icon></span>
@@ -86,130 +85,178 @@
   <!--------------------------Main--------------->
   <div class="main">
     <div class="topbar">
-
       <div class="toggle" (click)="toggle()">
         <ion-icon name="menu" (click)="toggle()"></ion-icon>
       </div>
 
       <div class="search">
         <label>
-          <input type="text" placeholder="search here">
+          <input type="text" placeholder="search here" />
           <ion-icon name="search"></ion-icon>
         </label>
       </div>
 
       <div class="user">
-        <img src="./assets/img/user.png" alt="">
+        <img src="./assets/img/user.png" alt="" />
       </div>
-
     </div>
 
     <!--------------------table------------------------------>
-    <app-detail *ngIf = "selectHuesped" [huesped] = "selectHuesped"></app-detail>
+    <app-detail *ngIf="selectHuesped" [huesped]="selectHuesped"></app-detail>
     <div class="details">
-      <div class="orderHuespedes"> 
+      <div class="orderHuespedes">
         <div class="cardHeader">
           <h2>Listado de Huespedes</h2>
-          <button mat-icon-button aria-label="addHuesped" [routerLink]="['/crearHuesped']">
-            <mat-icon ><ion-icon name="add-circle"></ion-icon></mat-icon>
+          <button
+            mat-icon-button
+            aria-label="addHuesped"
+            [routerLink]="['/crearHuesped']"
+          >
+            <mat-icon><ion-icon name="add-circle"></ion-icon></mat-icon>
           </button>
           <!--a class="btn" [routerLink]="['/crearHuesped']"--><!--/a-->
         </div>
 
         <div class="example-table-container">
-
-          <table mat-table [dataSource]="huespedes" class="mat-elevation-z8" *ngIf="huespedes && huespedes.length > 0">
-
+          <table
+            mat-table
+            [dataSource]="huespedes"
+            class="mat-elevation-z8"
+            *ngIf="huespedes && huespedes.length > 0"
+          >
             <!-- Id_huesped Column -->
             <ng-container matColumnDef="codigo">
               <th mat-header-cell *matHeaderCellDef>CODIGO</th>
-              <td mat-cell *matCellDef="let huespedes">{{huespedes.codHuesped}} </td>
+              <td mat-cell *matCellDef="let huespedes">
+                {{ huespedes.codHuesped }}
+              </td>
             </ng-container>
-
 
             <!-- tipDocumento Column -->
             <ng-container matColumnDef="tipoDocumento">
               <th mat-header-cell *matHeaderCellDef>TIPO DE DOCUMENTO</th>
-              <td mat-cell *matCellDef="let huespedes"> {{huespedes.tipoDocumento.nomTipoDocumento}} </td>
+              <td mat-cell *matCellDef="let huespedes">
+                {{ huespedes.tipoDocumento.nomTipoDocumento }}
+              </td>
             </ng-container>
 
             <!-- numDocumento Column -->
             <ng-container matColumnDef="numDocumento">
               <th mat-header-cell *matHeaderCellDef>NÚMERO DE DOCUMENTO</th>
-              <td mat-cell *matCellDef="let huespedes"> {{huespedes.numDocumento}} </td>
+              <td mat-cell *matCellDef="let huespedes">
+                {{ huespedes.numDocumento }}
+              </td>
             </ng-container>
 
             <!-- nombre Column -->
             <ng-container matColumnDef="Nombre">
               <th mat-header-cell *matHeaderCellDef>NOMBRE</th>
-              <td mat-cell *matCellDef="let huespedes"> {{huespedes.nombre}} </td>
+              <td mat-cell *matCellDef="let huespedes">
+                {{ huespedes.nombre }}
+              </td>
             </ng-container>
 
             <!-- apellido Column -->
             <ng-container matColumnDef="Apellido">
               <th mat-header-cell *matHeaderCellDef>APELLIDO</th>
-              <td mat-cell *matCellDef="let huespedes"> {{huespedes.apellido}} </td>
+              <td mat-cell *matCellDef="let huespedes">
+                {{ huespedes.apellido }}
+              </td>
             </ng-container>
 
             <!-- numero de celular Column -->
             <ng-container matColumnDef="NumeroCelular">
               <th mat-header-cell *matHeaderCellDef>NÚMERO CELULAR</th>
-              <td mat-cell *matCellDef="let huespedes"> {{huespedes.numCelular}} </td>
+              <td mat-cell *matCellDef="let huespedes">
+                {{ huespedes.numCelular }}
+              </td>
             </ng-container>
 
             <!-- correo Column -->
             <ng-container matColumnDef="Correo">
               <th mat-header-cell *matHeaderCellDef>CORREO ELECTRONICO</th>
-              <td mat-cell *matCellDef="let huespedes"> {{huespedes.correo}} </td>
+              <td mat-cell *matCellDef="let huespedes">
+                {{ huespedes.correo }}
+              </td>
             </ng-container>
 
+            <!-- numHabitación Column -->
 
             <!-- editar Column -->
             <ng-container matColumnDef="acciones">
               <th mat-header-cell *matHeaderCellDef>ACCIONES</th>
 
               <td mat-cell *matCellDef="let huespedes">
-
-                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <button
+                  mat-icon-buttondw
+                  [matMenuTriggerFor]="menu"
+                  aria-label="Example icon-button with a menu"
+                >
                   <mat-icon><ion-icon name="apps"></ion-icon></mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
-                  <button mat-menu-item aria-label="editar" routerLink="/actualizarHuesped/{{huespedes.codHuesped}}">
-                    <mat-icon><ion-icon name="create"  style="color: #000858 ;"></ion-icon></mat-icon>
-                    <span style="color: #000858;">Editar</span>
+                  <button
+                    mat-menu-item
+                    aria-label="editar"
+                    routerLink="/actualizarHuesped/{{ huespedes.codHuesped }}"
+                  >
+                    <mat-icon
+                      ><ion-icon name="create" style="color: #000858"></ion-icon
+                    ></mat-icon>
+                    <span style="color: #000858">Editar</span>
                   </button>
 
-                  <button mat-menu-item color="warn" aria-label="eliminar" (click)="deleteHuesped(huespedes)">
-                    <mat-icon><ion-icon name="trash" style="color: #000858 ;"></ion-icon></mat-icon>
-                    <span style="color: #000858;">Eliminar</span>
-                  </button>
-  
-                  <button mat-menu-item color="primary" aria-label="verHuespedes" (click)="openDialog(huespedes)">
-                    <mat-icon><ion-icon name="eye"  style="color: #000858;"></ion-icon></mat-icon>
-                    <span style="color: #000858;">Visualizar</span>
+                  <button
+                    mat-menu-item
+                    color="warn"
+                    aria-label="eliminar"
+                    (click)="deleteHuesped(huespedes)"
+                  >
+                    <mat-icon
+                      ><ion-icon name="trash" style="color: #000858"></ion-icon
+                    ></mat-icon>
+                    <span style="color: #000858">Eliminar</span>
                   </button>
 
-                  <button mat-menu-item color="primary" aria-label="checkIn"  [routerLink]="['/crearCheckin', huespedes.codHuesped]">
-                    <mat-icon><ion-icon name="key" style="color: #000858;"></ion-icon></mat-icon>
-                    <span style="color: #000858;">Check-In</span>
+                  <button
+                    mat-menu-item
+                    color="primary"
+                    aria-label="verHuespedes"
+                    (click)="openDialog(huespedes)"
+                  >
+                    <mat-icon
+                      ><ion-icon name="eye" style="color: #000858"></ion-icon
+                    ></mat-icon>
+                    <span style="color: #000858">Visualizar</span>
                   </button>
-  
+
+                  <button
+                    mat-menu-item
+                    color="primary"
+                    aria-label="checkIn"
+                    [routerLink]="['/crearCheckin', huespedes.codHuesped]"
+                  >
+                    <mat-icon
+                      ><ion-icon name="key" style="color: #000858"></ion-icon
+                    ></mat-icon>
+                    <span style="color: #000858">Check-In</span>
+                  </button>
                 </mat-menu>
-
-
-
-
               </td>
             </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            <tr
+              mat-header-row
+              *matHeaderRowDef="displayedColumns; sticky: true"
+            ></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
           </table>
-
         </div>
-        <app-paginador *ngIf="paginador" [paginador]="paginador"></app-paginador>
+        <app-paginador
+          *ngIf="paginador"
+          [paginador]="paginador"
+        ></app-paginador>
       </div>
     </div>
   </div>
-
 </div>

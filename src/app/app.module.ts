@@ -26,15 +26,17 @@ import { ListarHabitacionComponent } from './habitacion/listar/listar-habitacion
 import { DetailProductoComponent } from './producto/detail/detail-producto.component';
 import { DetailFacturaComponent } from './factura/detail/detail-factura.component';
 import { CrearFacturaComponent } from './factura/crear/crear-factura.component';
+import { ListarChecInComponent } from './checkIn/listar/listar-chec-in.component';
+import { CrearChecInComponent } from './checkIn/crear/crear-chec-in.component';
+import { DetailCheckInComponent } from './checkIn/detail/detail-check-in.component';
+import { GraficasPieComponent } from './reportes/graficas/graficas-pie.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaginadorComponent } from './paginador/paginador.component';
 import { DatePipe, registerLocaleData } from '@angular/common';
-import localeCO from '@angular/common/locales/es-CO'
+import localeCO from '@angular/common/locales/es-CO';
 registerLocaleData(localeCO, 'es-CO');
-
-
 
 //external
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -58,11 +60,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { IonicModule } from '@ionic/angular';
-import { ListarChecInComponent } from './checkIn/listar/listar-chec-in.component';
-import { CrearChecInComponent } from './checkIn/crear/crear-chec-in.component';
-import { DetailCheckInComponent } from './checkIn/detail/detail-check-in.component';
-
-
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -92,7 +90,8 @@ import { DetailCheckInComponent } from './checkIn/detail/detail-check-in.compone
     CrearFacturaComponent,
     ListarChecInComponent,
     CrearChecInComponent,
-    DetailCheckInComponent
+    DetailCheckInComponent,
+    GraficasPieComponent,
   ],
   imports: [
     BrowserModule,
@@ -121,7 +120,8 @@ import { DetailCheckInComponent } from './checkIn/detail/detail-check-in.compone
     MatGridListModule,
     MatMenuModule,
     MatAutocompleteModule,
-    IonicModule.forRoot()
+    IonicModule.forRoot(),
+    NgxChartsModule,
   ],
 
   exports: [
@@ -136,15 +136,15 @@ import { DetailCheckInComponent } from './checkIn/detail/detail-check-in.compone
     MatFormFieldModule,
     MatDatepickerModule,
     MatSelectModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
   ],
 
   entryComponents: [DetailComponent],
   providers: [
     HuespedService,
     { provide: LOCALE_ID, useValue: 'es-CO' },
-    DatePipe
+    DatePipe,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

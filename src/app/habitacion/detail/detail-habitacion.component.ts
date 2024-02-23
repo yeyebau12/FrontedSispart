@@ -6,55 +6,48 @@ import { HabitacionService } from 'src/app/service/habitacion/habitacion.service
 @Component({
   selector: 'app-detail-habitacion',
   templateUrl: './detail-habitacion.component.html',
-  styleUrls: ['./detail-habitacion.component.css']
+  styleUrls: ['./detail-habitacion.component.css'],
 })
 export class DetailHabitacionComponent {
-
   habitacion: Habitaciones = {
     nombreHabitacion: {
       nombre: '',
-      precioDia: 0
+      precioXPersona: 0,
     },
     descripHabitacion: '',
     numHabitacion: 0,
     pisoHabitacion: 0,
     maxPersonasDisponibles: 0,
-    estadoHabitacion:{
-      nombre: ''
+    estadoHabitacion: {
+      nombre: '',
     },
     imagenHabitacion: '',
-   
-  }
+  };
 
   constructor(
     private habitacionService: HabitacionService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) {
-
-  }
+  ) {}
 
   ngOnInit() {
-
     this.activatedRoute.paramMap.subscribe((params: any) => {
       let codHabitacion = +params.get('codHabitacion');
       if (codHabitacion) {
-        this.habitacionService.viewHabitacion(codHabitacion).subscribe(form => {
-          this.habitacion = form;
-          console.log(this.habitacion);
-        },
-          err => {
+        this.habitacionService.viewHabitacion(codHabitacion).subscribe(
+          (form) => {
+            this.habitacion = form;
+            console.log(this.habitacion);
+          },
+          (err) => {
             this.volver();
-          });
-
+          }
+        );
       }
-    }
-    )
+    });
   }
 
   volver(): void {
     this.router.navigate(['/listarHabitaciones']);
   }
-
-
 }

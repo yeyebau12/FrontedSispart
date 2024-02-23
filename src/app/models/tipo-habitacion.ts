@@ -1,11 +1,10 @@
 export class TipoHabitacion {
-    codTipoHabitacion?: number;
-    nombre!: string;
-    precioDia!: number;
+  codTipoHabitacion?: number;
+  nombre!: string;
+  precioXPersona!: number;
 
-    constructor(nombre:string, precioDia:number){
-        this.nombre = nombre;
-        this.precioDia = precioDia;
-
-    }
+  constructor(nombre: string, precioXPersona: number) {
+    this.nombre = nombre;
+    this.precioXPersona = precioXPersona;
+  }
 }

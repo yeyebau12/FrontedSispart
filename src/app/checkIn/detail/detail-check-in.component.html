@@ -1,86 +1,122 @@
 <h2>Visualización De Los Datos Del Check-In</h2>
 
 <form name="form" novalidate #f="ngForm">
+  <div class="form-group row">
+    <label for="codCheckin" class="form-label"
+      ><b>Codigo: </b>{{ checkIn.codCheckin }}</label
+    >
+  </div>
 
-    <div class=" form-group row">
-        <label for="codCheckin" class="form-label"><b>Codigo: </b>{{checkIn.codCheckin}}</label>
-    </div>
+  <div class="form-group row">
+    <label for="fechaEntrada" class="form-label"
+      ><b>Fecha de Ingreso: </b> {{ checkIn.fechaEntrada }}</label
+    >
+  </div>
 
-    <div class=" form-group row">
-        <label for="fechaEntrada" class="form-label"><b>Fecha de Ingreso: </b> {{checkIn.fechaEntrada}}</label>
-    </div>
+  <div class="form-group row">
+    <label for="fechaSalida" class="form-label"
+      ><b>Fecha de Salida: </b>{{ checkIn.fechaSalida }}</label
+    >
+  </div>
 
-    <div class=" form-group row">
-        <label for="fechaSalida" class="form-label"><b>Fecha de Salida: </b>{{checkIn.fechaSalida}}</label>
-    </div>
+  <div class="form-group row">
+    <label for="nombreHuesped"
+      ><b>Nombre y Apellido :</b> {{ checkIn.codHuesped.nombre }}
+      {{ checkIn.codHuesped.apellido }}</label
+    >
+  </div>
 
-    <div class=" form-group row">
-        <label for="nombreHuesped"><b>Nombre y Apellido :</b> {{checkIn.codHuesped.nombre}} {{checkIn.codHuesped.apellido}}</label>
-    </div>
+  <div class="form-group row">
+    <label for="tipHabitacion" class="form-label"
+      ><b>Tipo de Habitación </b>
+      {{ checkIn.codHabitacion.nombreHabitacion.nombre }}</label
+    >
+  </div>
 
-    <div class=" form-group row">
-        <label for="tipHabitacion" class="form-label"><b>Tipo de Habitación </b> {{checkIn.codHabitacion.nombreHabitacion.nombre}}</label>
-    </div>
-
-    <div class=" form-group row">
-        <label for="numHabitacion" class="form-label"><b>Número de Habitación: </b> {{checkIn.codHabitacion.numHabitacion}}</label>
-    </div>
-
+  <div class="form-group row">
+    <label for="numHabitacion" class="form-label"
+      ><b>Número de Habitación: </b>
+      {{ checkIn.codHabitacion.numHabitacion }}</label
+    >
+  </div>
 </form>
 
 <div class="row">
-    <button mat-icon-button aria-label="facturas" [routerLink]="['/crearFactura',checkIn.codCheckin]"><mat-icon><i
-                class="fa-solid fa-receipt fa-sm"></i></mat-icon></button>
+  <button
+    mat-icon-button
+    aria-label="facturas"
+    [routerLink]="['/crearFactura', checkIn.codCheckin]"
+  >
+    <mat-icon><i class="fa-solid fa-receipt fa-sm"></i></mat-icon>
+  </button>
 </div>
 
 <div class="row">
-    <div class="alert alert-info my-4" *ngIf="checkIn && checkIn.facturas && checkIn.facturas.length == 0">
-        No hay facturas asignadas para el huesped: {{checkIn.codHuesped.nombre }} {{checkIn.codHuesped.apellido}}
-    </div>
+  <div
+    class="alert alert-info my-4"
+    *ngIf="checkIn && checkIn.facturas && checkIn.facturas.length == 0"
+  >
+    No hay facturas asignadas para el huesped: {{ checkIn.codHuesped.nombre }}
+    {{ checkIn.codHuesped.apellido }}
+  </div>
 
-    <table class="table table-bordered table-striped my-4"
-        *ngIf="checkIn && checkIn.facturas && checkIn.facturas.length > 0">
-        <thead>
-            <th>Codigo de Factura</th>
-            <th>Descripcion</th>
-            <th>Fecha</th>
-            <th>Hora</th>
-            <th>Total</th>
-            <th>Estado de la Factura</th>
-            <th>Detalle</th>
-            <th>Eliminar</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let factura of checkIn.facturas">
-                <td>{{factura.codFactura}}</td>
-                <td>{{factura.descripcion}}</td>
-                <td>{{factura.fechaCreacion}}</td>
-                <td>{{factura.horaCreacion}}</td>
-                <td>${{factura.total}} COP</td>
-                <td>{{factura.estado}}</td>
-                <td> <button mat-icon-button color="primary" aria-label="verFactura"
-                        [routerLink]="['/verFactura',factura.codFactura]">
-                        <mat-icon><i class="fa-solid fa-eye fa-sm"></i></mat-icon>
-                    </button>
-                </td>
-                <td>
-                    <button mat-icon-button color="warn" aria-label="eliminar" (click)="deleteFactura(factura)">
-                        <mat-icon><i class="fa-solid fa-trash fa-sm"></i></mat-icon>
-                    </button>
-                </td>
-
-
-            </tr>
-        </tbody>
-    </table>
+  <table
+    class="table table-bordered table-striped my-4"
+    *ngIf="checkIn && checkIn.facturas && checkIn.facturas.length > 0"
+  >
+    <thead>
+      <th>Codigo de Factura</th>
+      <th>Descripcion</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Total</th>
+      <th>Estado de la Factura</th>
+      <th>Detalle</th>
+      <th>Eliminar</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let factura of checkIn.facturas">
+        <td>{{ factura.codFactura }}</td>
+        <td>{{ factura.descripcion }}</td>
+        <td>{{ factura.fechaCreacion }}</td>
+        <td>{{ factura.horaCreacion }}</td>
+        <td>${{ factura.total }} COP</td>
+        <td>{{ factura.estado }}</td>
+        <td>
+          <button
+            mat-icon-button
+            color="primary"
+            aria-label="verFactura"
+            [routerLink]="['/verFactura', factura.codFactura]"
+          >
+            <mat-icon><i class="fa-solid fa-eye fa-sm"></i></mat-icon>
+          </button>
+        </td>
+        <td>
+          <button
+            mat-icon-button
+            color="warn"
+            aria-label="eliminar"
+            (click)="deleteFactura(factura)"
+          >
+            <mat-icon><i class="fa-solid fa-trash fa-sm"></i></mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-<div class=" form-group row">
-    <mat-card-actions align="end">
-        <div>
-            <button mat-raised-button color="primary" (click)="volver()"><i class="fa-solid fa-arrow-rotate-left fa-sm"
-                    style="color: #f6f7f9;"></i> Regresar</button>
-        </div>
-
-    </mat-card-actions>
+<div class="form-group row">
+  <mat-card-actions align="end">
+    <div>
+      <button mat-raised-button color="primary" (click)="volver()">
+        <i
+          class="fa-solid fa-arrow-rotate-left fa-sm"
+          style="color: #f6f7f9"
+        ></i>
+        Regresar
+      </button>
+    </div>
+  </mat-card-actions>
 </div>

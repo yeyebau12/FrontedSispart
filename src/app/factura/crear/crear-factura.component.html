@@ -1,145 +1,252 @@
 <h4 class="card-title">
-    <a [routerLink]="['/listarCheckin']" class="btn btn-light btn-xs">&laquo; volver</a>
+  <a [routerLink]="['/listarCheckin']" class="btn btn-light btn-xs"
+    >&laquo; volver</a
+  >
 </h4>
 
 <div class="card bg-light">
-    <div class="card-header"><b>ApartaHotel Santandereno</b></div>
-    <div class="card-header"><b>NIT:</b> hdhdhd</div>
-    <div class="card-header"><b>Recepcionista:</b> hdhdhd</div>
-    <div class="card-header"><b>Telefono:</b> hdhdhd</div>
-    <div class="card-header"><b>Dirección:</b> hdhdhd</div>
-    <div class="card-header"><b>{{titulo}}:</b> {{factura.descripcion}}</div>
+  <div class="card-header"><b>ApartaHotel Santandereno</b></div>
+  <div class="card-header"><b>NIT:</b> hdhdhd</div>
+  <div class="card-header"><b>Recepcionista:</b> hdhdhd</div>
+  <div class="card-header"><b>Telefono:</b> hdhdhd</div>
+  <div class="card-header"><b>Dirección:</b> hdhdhd</div>
+  <div class="card-header">
+    <b>{{ titulo }}:</b> {{ factura.descripcion }}
+  </div>
 
-    <div class="card-body">
-        <form>
-            <div class="form-group row" *ngIf="factura.checkin">
-                <label for="tipoDocumento" class="col-sm-2 col-form-label">Tipo de Documento</label>
-                <div class="col-sm-6">
-                    <input type="text" name="tipoDocumento" class="form-control"
-                        value="{{factura.checkin.codHuesped.tipoDocumento.nomTipoDocumento}}" disabled>
-                </div>
-            </div>
+  <div class="card-body">
+    <form>
+      <div class="form-group row" *ngIf="factura.checkin">
+        <label for="tipoDocumento" class="col-sm-2 col-form-label"
+          >Tipo de Documento</label
+        >
+        <div class="col-sm-6">
+          <input
+            type="text"
+            name="tipoDocumento"
+            class="form-control"
+            value="{{
+              factura.checkin.codHuesped.tipoDocumento.nomTipoDocumento
+            }}"
+            disabled
+          />
+        </div>
+      </div>
 
-            <div class="form-group row" *ngIf="factura.checkin">
-                <label for="numDocumento" class="col-sm-2 col-form-label">Numero de Documento</label>
-                <div class="col-sm-6">
-                    <input type="text" name="numDocumento" class="form-control"
-                        value="{{factura.checkin.codHuesped.numDocumento}}" disabled>
-                </div>
-            </div>
+      <div class="form-group row" *ngIf="factura.checkin">
+        <label for="numDocumento" class="col-sm-2 col-form-label"
+          >Numero de Documento</label
+        >
+        <div class="col-sm-6">
+          <input
+            type="text"
+            name="numDocumento"
+            class="form-control"
+            value="{{ factura.checkin.codHuesped.numDocumento }}"
+            disabled
+          />
+        </div>
+      </div>
 
-            <div class="form-group row" *ngIf="factura.checkin">
-                <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
-                <div class="col-sm-6">
-                    <input type="text" name="nombre" class="form-control"
-                        value="{{factura.checkin.codHuesped.nombre}} {{factura.checkin.codHuesped.apellido}}" disabled>
-                </div>
-            </div>
+      <div class="form-group row" *ngIf="factura.checkin">
+        <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+        <div class="col-sm-6">
+          <input
+            type="text"
+            name="nombre"
+            class="form-control"
+            value="{{ factura.checkin.codHuesped.nombre }} {{
+              factura.checkin.codHuesped.apellido
+            }}"
+            disabled
+          />
+        </div>
+      </div>
 
-            <div class="form-group row">
-                <label for="descripcion" class="col-sm-2 col-form-label">Descripcion</label>
-                <div class="col-sm-6">
-                    <input type="text" name="descripcion" class="form-control" [(ngModel)]="factura.descripcion">
-                </div>
-            </div>
+      <div class="form-group row">
+        <label for="descripcion" class="col-sm-2 col-form-label"
+          >Descripcion</label
+        >
+        <div class="col-sm-6">
+          <input
+            type="text"
+            name="descripcion"
+            class="form-control"
+            [(ngModel)]="factura.descripcion"
+          />
+        </div>
+      </div>
 
-            <div class="form-group row">
-                <label for="estado" class="col-sm-2 col-form-label">Estado de la Factura</label>
-                <div class="col-sm-6">
-                    <input type="text" name="estado" class="form-control" [(ngModel)]="factura.estado">
-                </div>
-            </div>
+      <div class="form-group row">
+        <label for="estado" class="col-sm-2 col-form-label"
+          >Estado de la Factura</label
+        >
+        <div class="col-sm-6">
+          <input
+            type="text"
+            name="estado"
+            class="form-control"
+            [(ngModel)]="factura.estado"
+          />
+        </div>
+      </div>
 
-            <div class="card bg-light">
+      <div class="card bg-light">
+        <div class="card-header"><b>Datos de la Habitación</b></div>
 
-                <div class="card-header"> <b>Datos de la Habitacíon</b></div>
+        <div class="form-group row" *ngIf="factura.checkin">
+          <label for="numHabitacion" class="col-sm-2 col-form-label"
+            >Habitacion N°</label
+          >
+          <div class="col-sm-6">
+            <input
+              type="text"
+              name="nombre"
+              class="form-control"
+              value="{{ factura.checkin.codHabitacion.numHabitacion }}"
+              disabled
+            />
+          </div>
+        </div>
 
-                <div class="form-group row" *ngIf="factura.checkin">
-                    <label for="nombre" class="col-sm-2 col-form-label">Habitacion N°</label>
-                    <div class="col-sm-6">
-                        <input type="text" name="nombre" class="form-control"
-                            value="{{factura.checkin.codHabitacion.numHabitacion}}" disabled>
-                    </div>
-                </div>
+        <div class="form-group row" *ngIf="factura.checkin">
+          <label for="nombre" class="col-sm-2 col-form-label"
+            >Tipo de Habitación</label
+          >
+          <div class="col-sm-6">
+            <input
+              type="text"
+              name="nombre"
+              class="form-control"
+              value="{{
+                factura.checkin.codHabitacion.nombreHabitacion.nombre
+              }}"
+              disabled
+            />
+          </div>
+        </div>
 
-                <div class="form-group row" *ngIf="factura.checkin">
-                    <label for="nombre" class="col-sm-2 col-form-label">Tipo de Habitación</label>
-                    <div class="col-sm-6">
-                        <input type="text" name="nombre" class="form-control"
-                            value="{{factura.checkin.codHabitacion.nombreHabitacion.nombre}}" disabled>
-                    </div>
-                </div>
+        <div class="form-group row" *ngIf="factura.checkin">
+          <label for="precioXPersona" class="col-sm-2 col-form-label"
+            >Total de la Habitación</label
+          >
+          <div class="col-sm-6">
+            <input
+              type="text"
+              name="nombre"
+              class="form-control"
+              value="{{
+                factura.checkin.total | currency : 'COP' : 'symbol' : '1.0-0'
+              }}"
+              disabled
+            />
+          </div>
+        </div>
+      </div>
 
-                <div class="form-group row" *ngIf="factura.checkin">
-                    <label for="nombre" class="col-sm-2 col-form-label">Valor de la Habitación</label>
-                    <div class="col-sm-6">
-                        <input type="text" name="nombre" class="form-control"
-                            value="${{factura.checkin.codHabitacion.nombreHabitacion.precioDia}} COP" disabled>
-                    </div>
-                </div>
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <mat-form-field>
+            <mat-label>Añadir productos</mat-label>
+            <input
+              type="text"
+              placeholder="Añadir  productos"
+              aria-label="productos"
+              matInput
+              [formControl]="autocompleteControl"
+              [matAutocomplete]="auto"
+            />
+            <mat-autocomplete
+              #auto="matAutocomplete"
+              [displayWith]="mostrarNombre"
+              (optionSelected)="seleccionarProducto($event)"
+            >
+              <mat-option
+                *ngFor="let producto of productosFiltrados | async"
+                [value]="producto"
+              >
+                {{ producto.nombreProducto }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+      </div>
 
-            </div>
+      <div
+        class="alert alert-info my-4"
+        *ngIf="
+          factura && factura.itemFactura && factura.itemFactura.length == 0
+        "
+      >
+        Aún no hay productos registrados para esta factura. Por Favor Agregue
+        sus productos!
+      </div>
 
-            <div class="form-group row">
-                <div class="col-sm-6">
-                    <mat-form-field>
-                        <mat-label>Añadir productos</mat-label>
-                        <input type="text" placeholder="Añadir  productos" aria-label="productos" matInput
-                            [formControl]="autocompleteControl" [matAutocomplete]="auto">
-                        <mat-autocomplete #auto="matAutocomplete" [displayWith]="mostrarNombre"
-                            (optionSelected)="seleccionarProducto($event)">
-                            <mat-option *ngFor="let producto of productosFiltrados | async" [value]="producto">
-                                {{producto.nombreProducto}}
-                            </mat-option>
-                        </mat-autocomplete>
-                    </mat-form-field>
-                </div>
-            </div>
+      <table
+        class="table table-striped table-hover table-sm"
+        *ngIf="factura && factura.itemFactura && factura.itemFactura.length > 0"
+      >
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Sub-Total</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of factura.itemFactura">
+            <td>{{ item.producto.nombreProducto }}</td>
+            <td>
+              {{ item.producto.precio | currency : "COP" : "symbol" : "1.0-0" }}
+            </td>
+            <td>
+              <input
+                type="number"
+                value="{{ item.cantidad }}"
+                class="form-control col-sm-0"
+                (change)="
+                  actualizarCantidad(item.producto.codProducto ?? 0, $event)
+                "
+              />
+            </td>
+            <td>{{ item.calcularSubTotal() }}</td>
+            <td>
+              <button
+                mat-icon-button
+                color="warn"
+                aria-label="eliminar"
+                (click)="deleteItemFactura(item.producto.codProducto ?? 0)"
+              >
+                <i class="fa-solid fa-circle-xmark fa-sm"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
+      <h4
+        style="text-align: end"
+        *ngIf="factura && factura.itemFactura && factura.itemFactura.length > 0"
+      >
+        <span><strong>Total</strong></span
+        >:
+        <span>{{
+          factura.calcularTotal() | currency : "COP" : "symbol" : "1.0-0"
+        }}</span>
+      </h4>
 
-            <div class="alert alert-info my-4"
-                *ngIf="factura && factura.itemFactura && factura.itemFactura.length == 0">
-                Aún no hay productos registrados para esta factura. Por Favor Agregue sus productos!
-            </div>
-
-            <table class="table table-striped table-hover table-sm"
-                *ngIf="factura && factura.itemFactura && factura.itemFactura.length > 0">
-                <thead>
-                    <tr>
-                        <th>Producto</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Sub-Total</th>
-                        <th>Eliminar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of factura.itemFactura">
-                        <td>{{item.producto.nombreProducto}}</td>
-                        <td>{{item.producto.precio}}</td>
-                        <td><input type="number" value="{{item.cantidad}}" class="form-control col-sm-0"
-                                (change)="actualizarCantidad(item.producto.codProducto ?? 0,$event)"></td>
-                        <td>{{item.calcularSubTotal()}}</td>
-                        <td> <button mat-icon-button color="warn" aria-label="eliminar"
-                                (click)="deleteItemFactura(item.producto.codProducto ?? 0)">
-                                <i class="fa-solid fa-circle-xmark fa-sm"></i>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h4 style="text-align: end;" *ngIf="factura && factura.itemFactura && factura.itemFactura.length > 0">
-                <span><strong>Total</strong></span>: <span>${{factura.calcularTotal()}}
-                    COP</span>
-            </h4>
-
-
-            <div class="form-group row">
-                <div class="col-sm-6">
-                    <input type="submit" (click)="createFactura()" value="Crear Factura" class="btn btn-secondary">
-                </div>
-            </div>
-        </form>
-    </div>
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <input
+            type="submit"
+            (click)="createFactura()"
+            value="Crear Factura"
+            class="btn btn-secondary"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
